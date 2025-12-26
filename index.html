@@ -701,6 +701,7 @@
             <button class="tab" onclick="showTab('roles')">👥 Roles</button>
             <button class="tab" onclick="showTab('events')">📅 Eventos</button>
             <button class="tab" onclick="showTab('artifacts')">📋 Artefactos</button>
+            <button class="tab" onclick="showTab('requisitos')">📋 Requisitos</button>
             <button class="tab" onclick="showTab('sprint')">⚡ Sprint Actual</button>
             <button class="tab" onclick="showTab('backlog')">📝 Product Backlog</button>
             <button class="tab" onclick="showTab('stories')">📖 User Stories</button>
@@ -724,30 +725,48 @@
                     <p><strong>Solución:</strong> Migración a AWS por la Alta escalabilidad, rapidez y seguridad.</p>
                 </div>
 
-                <h3>📈 Roadmap de Sprints</h3>
+                <h3>📈 Roadmap del Proyecto</h3>
                 <div class="sprint-timeline">
+                    <div class="sprint-item">
+                        <div class="sprint-dot completed">F1</div>
+                        <strong>Fase 1</strong><br>
+                        <small>Planificación</small><br>
+                        <small>✅ Completado</small>
+                    </div>
+                    <div class="sprint-item">
+                        <div class="sprint-dot completed">S0</div>
+                        <strong>Sprint 0</strong><br>
+                        <small>Arquitectura Cloud</small><br>
+                        <small>✅ Completado</small>
+                    </div>
                     <div class="sprint-item">
                         <div class="sprint-dot completed">S1</div>
                         <strong>Sprint 1</strong><br>
-                        <small>BD + Pago</small><br>
-                        <small>✅ Completado (8 pts)</small>
+                        <small>Gestión Pacientes</small><br>
+                        <small>✅ Completado</small>
                     </div>
                     <div class="sprint-item">
-                        <div class="sprint-dot in-progress">S2</div>
+                        <div class="sprint-dot completed">S2</div>
                         <strong>Sprint 2</strong><br>
-                        <small>Búsqueda + Carrito</small><br>
-                        <small>🔄 En progreso (10 pts)</small>
+                        <small>Catálogo y Órdenes</small><br>
+                        <small>✅ Completado</small>
                     </div>
                     <div class="sprint-item">
-                        <div class="sprint-dot">S3</div>
+                        <div class="sprint-dot completed">S3</div>
                         <strong>Sprint 3</strong><br>
-                        <small>Integración Pago</small><br>
-                        <small>📋 Planificado</small>
+                        <small>Procesamiento</small><br>
+                        <small>✅ Completado</small>
                     </div>
                     <div class="sprint-item">
-                        <div class="sprint-dot-1">S4</div>
+                        <div class="sprint-dot in-progress">S4</div>
                         <strong>Sprint 4</strong><br>
-                        <small>Features Finales</small><br>
+                        <small>Validación Médica</small><br>
+                        <small>🔄 En progreso</small>
+                    </div>
+                    <div class="sprint-item">
+                        <div class="sprint-dot-1">F3</div>
+                        <strong>Fase 3</strong><br>
+                        <small>Cierre</small><br>
                         <small>📋 Planificado</small>
                     </div>
                 </div>
@@ -755,18 +774,24 @@
                 <div class="grid-2">
                     <div class="card">
                         <h3>📊 Métricas del Proyecto</h3>
-                        <p><strong>Velocidad del Equipo:</strong> 10 puntos/sprint</p>
-                        <p><strong>Sprints Totales:</strong> 4</p>
+                        <p><strong>Inicio del Proyecto:</strong> 23 de septiembre de 2025</p>
+                        <p><strong>Fin Proyectado:</strong> 27 de diciembre de 2025</p>
+                        <p><strong>Duración Total:</strong> 3 meses</p>
+                        <p><strong>Sprints Totales:</strong> 5 (Sprint 0, 1, 2, 3, 4)</p>
                         <p><strong>Duración Sprint:</strong> 2 semanas</p>
-                        <p><strong>Progreso:</strong> 4/4 sprints (100%)</p>
-                        <p><strong>Stories Completadas:</strong> 24/24 (100%)</p>
+                        <p><strong>Progreso:</strong> 3/5 sprints completados (60%)</p>
+                        <p><strong>Stories Completadas:</strong> 7/10 HUs (70%)</p>
                     </div>
 
                     <div class="card">
-                        <h3>🎯 Sprint Goal Actual</h3>
-                        <p><strong>Sprint 4:</strong> Cierre del proyecto y CI / CD.</p>
+                        <h3>🎯 Sprint Actual</h3>
+                        <p><strong>Sprint 4:</strong> Validación Médica y Entrega</p>
+                        <p><strong>Fecha:</strong> 09 dic - 20 dic 2025</p>
+                        <p><strong>Estado:</strong> 🔄 En progreso</p>
+                        <p><strong>HUs:</strong> HU-07, HU-09, HU-10</p>
                     </div>
                 </div>
+=======
 
                 <h3>🏆 Requerimientos del Product Owner</h3>
                 <div class="grid-3">
@@ -1043,7 +1068,7 @@
                         <li>Ordenado por valor de negocio</li>
                     </ul>
                     <p><strong>Gestión:</strong> Product Owner es responsable</p>
-                    <p><strong>Librerías Pepito:</strong> 24+ user stories priorizadas</p>
+                    <p><strong>GSTAR LAB:</strong> 10 historias de usuario priorizadas (HU-01 a HU-10)</p>
                 </div>
 
                 <div class="artifact-card card">
@@ -1056,12 +1081,12 @@
                         <li>Tareas descompuestas</li>
                         <li>Plan de trabajo</li>
                     </ul>
-                    <p><strong>Sprint 2 Librerías Pepito:</strong></p>
+                    <p><strong>Sprint 2 GSTAR LAB:</strong></p>
                     <ul>
-                        <li>HU-02: Búsqueda por autor (3 pts)</li>
-                        <li>HU-03: Filtrar por precio (3 pts)</li>
-                        <li>HU-08: Carrito de compra (8 pts)</li>
-                        <li>Total: 14 pts planificados, capacidad 10 pts</li>
+                        <li>HU-01: Solicitar Información (3 pts)</li>
+                        <li>HU-02: Entregar orden de laboratorio (3 pts)</li>
+                        <li>HU-06: Registrar datos del paciente y orden (5 pts)</li>
+                        <li>Total: 11 pts planificados</li>
                     </ul>
                 </div>
 
@@ -1076,9 +1101,10 @@
                     </ul>
                     <p><strong>Sprint 1 Completado:</strong></p>
                     <ul>
-                        <li>✅ Base de datos de libros (4 pts)</li>
-                        <li>✅ Medio de pago (5 pts)</li>
-                        <li>Total entregado: 8 puntos</li>
+                        <li>✅ HU-03: Verificar datos del paciente (3 pts)</li>
+                        <li>✅ HU-04: Registrar paciente con historias (4 pts)</li>
+                        <li>✅ HU-05: Registrar paciente sin historias (2 pts)</li>
+                        <li>Total entregado: 9 puntos</li>
                     </ul>
                 </div>
 
@@ -1104,14 +1130,189 @@
                 </div>
             </div>
 
+            <!-- Requisitos -->
+            <div id="requisitos" class="tab-content">
+                <h2 class="section-title">Requisitos del Sistema</h2>
+
+                <div class="card">
+                    <h3>📋 Tipos de Requisitos</h3>
+                    <p>Los requisitos del sistema se dividen en dos categorías principales:</p>
+                    <ul>
+                        <li><strong>Requisitos Funcionales (RF):</strong> Definen el comportamiento específico y las funciones que el sistema ejecutará</li>
+                        <li><strong>Requisitos No Funcionales (RNF):</strong> Definen los atributos de calidad, rendimiento y seguridad bajo los cuales debe operar el sistema</li>
+                    </ul>
+                </div>
+
+                <h3>⚙️ Requisitos Funcionales (RF)</h3>
+                <p style="text-align: center; color: #f39c12; margin-bottom: 20px;">Comportamiento específico y funciones del sistema GSTAR LAB</p>
+
+                <div class="grid-2">
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-01: Registro de Orden y Paciente</h4>
+                        <p>El sistema debe permitir el registro completo de la orden de laboratorio vinculada a los datos del paciente (Historia Clínica). Esto implica una lógica transaccional para vincular al paciente con los exámenes seleccionados y generar un identificador único de orden guardado en la base de datos.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-02: Gestión de Estados de Exámenes</h4>
+                        <p>El software debe incluir indicadores visuales o cambios de estado automático (de "Pendiente" a "Procesado") para diferenciar el flujo de trabajo. En el dashboard de laboratorio, esto se visualiza mediante indicadores tipo semáforo.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-03: Parámetros de Referencia (Rangos)</h4>
+                        <p>El sistema debe registrar y validar en el Backend los valores mínimos y máximos (referenciales) permitidos para cada examen. Esto asegura la calidad del dato ingresado.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-04: Gestión de Unidades de Medida</h4>
+                        <p>Se debe permitir el registro y asignación dinámica de unidades de medida para cada prueba (ej. mUI/mL para HCG cuantitativo), integrándose según el tipo de examen configurado.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-05: Creación de Perfiles (Paquetes)</h4>
+                        <p>El sistema debe contar con un formulario para agrupar exámenes individuales en "perfiles" o paquetes (ej. Perfil Hepático), facilitando la selección rápida durante la orden.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-06: Mantenimiento de Tablas (CRUD)</h4>
+                        <p>Se requieren interfaces administrativas para realizar las operaciones de Crear, Leer, Actualizar y Eliminar (CRUD) sobre las tablas de la base de datos de exámenes y pruebas, permitiendo actualizar valores referenciales.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-07: Verificación y Validación Médica</h4>
+                        <p>El sistema debe proporcionar una interfaz para que el Médico Tecnólogo o Patólogo verifique los resultados. Si los resultados están fuera de los parámetros, el sistema debe permitir cambiar el estado y observar el examen mediante botones de acción (Aprobar/Observar).</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-08: Pruebas Especiales</h4>
+                        <p>Debe existir un formulario específico para registrar pruebas especiales que requieran valores referenciales y unidades de medida particulares.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-09: Filtros de Búsqueda Avanzada</h4>
+                        <p>El sistema debe incluir filtros para buscar por tipos de examen, fecha, apellido paterno, número de registro, Historia Clínica y DNI. A nivel técnico, esto implica el desarrollo de una API de búsqueda con funciones de autocompletado.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-10: Reportes con Observaciones</h4>
+                        <p>El software debe generar reportes que incluyan los comentarios u observaciones ingresados por los licenciados o médicos (gestionados mediante modales emergentes en la interfaz), permitiendo versiones con y sin unidades de medida.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-11: Impresión y Formatos</h4>
+                        <p>El sistema debe permitir la impresión de resultados en hojas membretadas y en diferentes formatos (A4 y A5). Estos documentos se generan típicamente como PDFs almacenados en la nube (AWS S3) para su descarga.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <h4>RF-12: Reportes Gerenciales y Dashboard</h4>
+                        <p>El sistema debe consolidar la información de los exámenes procesados mensualmente y presentarla gráficamente (estadísticas por día). Además, debe permitir la exportación de esta data a formatos Excel y PDF.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;">🔒 Requisitos No Funcionales (RNF)</h3>
+                <p style="text-align: center; color: #f39c12; margin-bottom: 20px;">Atributos de calidad, rendimiento y seguridad del sistema</p>
+
+                <div class="grid-2">
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-01: Disponibilidad</h4>
+                        <p>El sistema debe garantizar un tiempo de actividad (uptime) del <strong>99.9%</strong> durante los días laborables, asegurando la continuidad operativa del laboratorio.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-02: Usabilidad</h4>
+                        <p>La interfaz debe ser intuitiva ("amigable"), permitiendo que nuevos usuarios aprendan a utilizar las funciones principales en menos de <strong>60 minutos</strong>.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-03: Seguridad de Credenciales</h4>
+                        <p>Todas las contraseñas de los usuarios deben estar <strong>encriptadas</strong>. Técnicamente, esto se implementa mediante servicios de gestión de identidad como <strong>AWS Cognito e IAM</strong>.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-04: Rendimiento (Performance)</h4>
+                        <p>El tiempo de respuesta para guardar datos en el sistema no debe exceder los <strong>3 segundos</strong>, garantizando agilidad en la atención.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-05: Seguridad de Acceso (Bloqueo)</h4>
+                        <p>Como medida de seguridad, el sistema debe bloquear automáticamente la cuenta de usuario tras el <strong>tercer intento fallido</strong> de inicio de sesión.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-06: Interfaz Visual (Código de Colores)</h4>
+                        <p>Para mejorar la usabilidad visual, el sistema debe usar colores específicos en las filas de datos:</p>
+                        <ul>
+                            <li><strong style="color: palegreen;">Verde pálido (Palegreen)</strong> para exámenes procesados</li>
+                            <li><strong style="color: thistle;">Magenta claro (Thistle)</strong> para los pendientes</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-07: Auditoría y Trazabilidad</h4>
+                        <p>El sistema debe registrar todas las acciones (CRUD) realizadas por cada usuario en una <strong>tabla de auditoría</strong> o "visor de sucesos" en la base de datos, garantizando que cada acción pueda rastrearse a una cuenta específica.</p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3498db;">
+                        <h4>RNF-08: Escalabilidad y Arquitectura</h4>
+                        <p>La base de datos debe soportar escalabilidad y alto rendimiento para permitir futuras integraciones con interfaces Web, móviles o Azure, así como la interacción con otras APIs. Esto se respalda mediante una arquitectura en la nube (<strong>AWS RDS, VPC</strong>).</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;">📊 Mapeo RF/RNF → Historias de Usuario</h3>
+                <div class="card">
+                    <h4>Trazabilidad de Requisitos a HUs:</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <thead>
+                            <tr style="background: #0f3460;">
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Requisito</th>
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tipo</th>
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Historia de Usuario</th>
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Sprint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">RF-01</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Funcional</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-06: Registrar datos del paciente y orden</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprint 2</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">RF-02</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Funcional</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-08: Registrar resultados de laboratorio</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprint 3</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">RF-09</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Funcional</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-03: Verificar datos del paciente</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprint 1</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">RNF-03</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #3498db;">No Funcional</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprint 0: Arquitectura Cloud (AWS Cognito/IAM)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprint 0</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">RNF-07</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #3498db;">No Funcional</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Implementado en todas las HUs (tabla de auditoría)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Todos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <!-- Sprint Actual -->
             <div id="sprint" class="tab-content">
-                <h2 class="section-title">Sprint 2 - En Progreso</h2>
+                <h2 class="section-title">Sprint 4 - En Progreso</h2>
 
                 <div class="card">
                     <h3>🎯 Sprint Goal</h3>
-                    <p><strong>Implementar funcionalidades avanzadas de búsqueda (por autor, por precio) y carrito de compra funcional con pasarela de pago integrada</strong></p>
-                    <p><strong>Duración:</strong> 2 semanas | <strong>Capacidad:</strong> 10 puntos | <strong>Equipo:</strong> 5 miembros</p>
+                    <p><strong>Desarrollo de pantallas de validación para médicos con alertas de valores críticos y generación de informes en PDF con almacenamiento en AWS S3</strong></p>
+                    <p><strong>Duración:</strong> 2 semanas (09 dic - 20 dic 2025) | <strong>Capacidad:</strong> 10 puntos | <strong>Equipo:</strong> 3 miembros</p>
                 </div>
 
                 <h3>📊 Tablero Kanban</h3>
