@@ -966,11 +966,11 @@
                     <h3>👨‍💻 Development Team</h3>
                       <p><strong>Equipo GSTAR LAB:</strong></p>
                     <ul>
-                        <strong><li>Milton Saccsara y Daniel Diaz</li></strong>
+                        <strong><li>Daniel Diaz Jesus, Tomas Mejia, Milton Saccsara</li></strong>
                     </ul>
                     <p><strong>Características:</strong></p>
                     <ul>
-                        <li>1 -2 profesionales auto-organizados</li>
+                        <li>3 profesionales auto-organizados</li>
                         <li>Cross-funcionales (todas las habilidades necesarias)</li>
                         <li>Responsabilidad colectiva</li>
                         <li>No hay sub-equipos ni títulos individuales</li>
@@ -1319,70 +1319,74 @@
                 <div class="kanban-board">
                     <div class="kanban-column">
                         <div class="kanban-header todo-header">📋 TO DO</div>
-                        <div class="story-card priority-medium">
-                            <strong>HU-08: Carrito de compra</strong>
-                            <span class="story-points">8</span>
-                            <p>Implementar carrito funcional</p>
-                            <small>👤 Asignado: Gonzalo, James</small>
+                        <div class="story-card priority-high">
+                            <strong>HU-10: Realizar observaciones del resultado</strong>
+                            <span class="story-points">2</span>
+                            <p>Comentarios a exámenes con observaciones</p>
+                            <small>👤 Asignado: Daniel Diaz</small>
                         </div>
                     </div>
 
                     <div class="kanban-column">
                         <div class="kanban-header doing-header">⚙️ DOING</div>
                         <div class="story-card priority-high">
-                            <strong>HU-02: Búsqueda por autor</strong>
+                            <strong>HU-07: Entregar resultados de exámenes</strong>
                             <span class="story-points">3</span>
-                            <p>Buscador con autocompletado</p>
-                            <small>👤 Asignado: Rodrigo</small>
+                            <p>Generación de PDFs en AWS S3</p>
+                            <small>👤 Asignado: Tomas Mejia</small>
                         </div>
                         <div class="story-card priority-high">
-                            <strong>HU-03: Filtrar por precio</strong>
-                            <span class="story-points">3</span>
-                            <p>Slider de rango de precios</p>
-                            <small>👤 Asignado: Rodrigo</small>
+                            <strong>HU-09: Evaluar resultados de laboratorio</strong>
+                            <span class="story-points">4</span>
+                            <p>Pantallas de validación médica</p>
+                            <small>👤 Asignado: Milton Saccsara</small>
                         </div>
                     </div>
 
                     <div class="kanban-column">
                         <div class="kanban-header done-header">✅ DONE</div>
-                        <p style="text-align: center; color: #808080; padding: 20px;">
-                            Esperando finalización de stories...
-                        </p>
+                        <div class="story-card priority-medium">
+                            <strong>HU-08: Registrar resultados</strong>
+                            <span class="story-points">5</span>
+                            <p>Interfaces tipo grilla completadas</p>
+                            <small>✅ Completado</small>
+                        </div>
                     </div>
                 </div>
 
                 <h3>📈 Burndown Chart</h3>
                 <div class="burndown-chart">
                     <div class="chart-placeholder">
-                        Puntos Restantes: 14 → 10 (ideal)<br>
-                        Días transcurridos: 7/14
+                        Puntos Restantes: 9 → 5 (ideal)<br>
+                        Días transcurridos: 8/14<br>
+                        Sprint 4: Validación Médica y Entrega
                     </div>
                 </div>
 
                 <h3>🚧 Impedimentos</h3>
                 <div class="impediment-box">
-                    <strong>Impedimento:</strong> Retraso en aprobaciones de diseño de checkout<br>
-                    <strong>Responsable de resolver:</strong> Scrum Master (Enrique)<br>
-                    <strong>Estado:</strong> En gestión
+                    <strong>Impedimento:</strong> Configuración de permisos en AWS S3 para almacenamiento de PDFs<br>
+                    <strong>Responsable de resolver:</strong> Scrum Master (Tomas Mejia)<br>
+                    <strong>Estado:</strong> Resuelto - Permisos configurados correctamente
                 </div>
 
                 <h3>📋 Descomposición en Tareas</h3>
                 <div class="grid-2">
                     <div class="card">
-                        <h4>HU-02: Búsqueda por autor (3 pts)</h4>
+                        <h4>HU-07: Entregar resultados (3 pts)</h4>
                         <ul>
-                            <li>✅ Crear base de datos de autores - Rodrigo (4h)</li>
-                            <li>⚙️ Vincular BD con filtro alfabético - Rodrigo (6h)</li>
-                            <li>📋 Programar diseño desde mockup - Sofía (8h)</li>
+                            <li>✅ Diseñar template PDF con membrete - Tomas (6h)</li>
+                            <li>⚙️ Integrar con AWS S3 - Tomas (8h)</li>
+                            <li>📋 Implementar descarga masiva - Daniel (6h)</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <h4>HU-08: Carrito de compra (8 pts)</h4>
+                        <h4>HU-09: Evaluar resultados (4 pts)</h4>
                         <ul>
-                            <li>⚙️ Crear BD de stock - Enrique (6h)</li>
-                            <li>📋 Repositorio de libros - James (8h)</li>
-                            <li>📋 Gestor de inventarios - Renato (10h)</li>
-                            <li>📋 Integración pasarela pago - Gonzalo (12h)</li>
+                            <li>✅ Crear pantalla de validación - Milton (8h)</li>
+                            <li>⚙️ Implementar alertas de valores críticos - Milton (10h)</li>
+                            <li>📋 Botones aprobar/observar - Daniel (6h)</li>
+                            <li>📋 Dashboard gerencial - Tomas (8h)</li>
                         </ul>
                     </div>
                 </div>
@@ -1404,33 +1408,39 @@
                 </div>
 
                 <div class="card">
-                    <h3>📊 Resumen del Backlog</h3>
+                    <h3>📊 Resumen del Backlog - GSTAR LAB</h3>
                     <div class="grid-3">
                         <div>
                             <strong>Sprint 1 - Completado:</strong> 9 pts<br>
-                            3 historias ✅
+                            3 historias ✅<br>
+                            <small>HU-03, HU-04, HU-05</small>
                         </div>
                         <div>
-                            <strong>Sprint 2 - En Progreso:</strong> 14 pts<br>
-                            3 historias 🔄
+                            <strong>Sprint 2 - Completado:</strong> 11 pts<br>
+                            3 historias ✅<br>
+                            <small>HU-01, HU-02, HU-06</small>
                         </div>
                         <div>
-                            <strong>Sprint 3 - Planificado:</strong> 21 pts<br>
-                            4 historias 📋
+                            <strong>Sprint 3 - Completado:</strong> 5 pts<br>
+                            1 historia ✅<br>
+                            <small>HU-08</small>
                         </div>
                     </div>
                     <div class="grid-3" style="margin-top: 15px;">
                         <div>
-                            <strong>Sprint 4 - Planificado:</strong> 38 pts<br>
-                            5 historias 📋
+                            <strong>Sprint 4 - En Progreso:</strong> 9 pts<br>
+                            3 historias 🔄<br>
+                            <small>HU-07, HU-09, HU-10</small>
                         </div>
                         <div>
-                            <strong>Sprint 5 - Planificado:</strong> 23 pts<br>
-                            9+ historias 📋
+                            <strong>Backlog Restante:</strong> 0 pts<br>
+                            0 historias 📋<br>
+                            <small>Todas asignadas</small>
                         </div>
                         <div>
-                            <strong>Total Proyecto:</strong> 105+ pts<br>
-                            24+ historias
+                            <strong>Total Proyecto:</strong> 34 pts<br>
+                            10 historias<br>
+                            <small>Sistema Laboratorio</small>
                         </div>
                     </div>
                 </div>
@@ -1438,60 +1448,61 @@
                 <h2 style="color: #00b894; margin-top: 30px;">✅ SPRINT 1 - COMPLETADO (9 pts)</h2>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-01: Búsqueda de libros por título (2 pts) - ✅ COMPLETADA</h4>
+                    <h4>HU-03: Verificar datos del paciente (3 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario de la tienda virtual de Librerías Pepito</p>
-                    <p><strong>Quiero</strong> buscar libros ingresando el título en un buscador</p>
-                    <p><strong>Para</strong> encontrar rápidamente el libro específico que necesito comprar</p>
+                    <p><strong>Como</strong> recepcionista del laboratorio</p>
+                    <p><strong>Quiero</strong> verificar los datos del paciente mediante búsqueda por DNI, apellido paterno o número de registro</p>
+                    <p><strong>Para</strong> confirmar su identidad antes de procesar la orden de exámenes</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>El buscador debe estar visible en la página principal</li>
-                        <li>Debe aceptar hasta 20 caracteres máximo</li>
-                        <li>Debe soportar búsqueda alfanumérica (letras y números)</li>
-                        <li>Los resultados deben mostrarse en tiempo real</li>
-                        <li>Debe ser case-insensitive (no distingue mayúsculas/minúsculas)</li>
+                        <li>Búsqueda debe soportar: DNI (8 dígitos), apellido paterno, número de registro</li>
+                        <li>Debe mostrar datos completos: nombre, DNI, fecha de nacimiento, dirección</li>
+                        <li>Si el paciente existe, debe cargar su Historia Clínica automáticamente</li>
+                        <li>Debe validar formato de DNI (solo números, 8 dígitos)</li>
+                        <li>Tiempo de respuesta menor a 2 segundos</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que estoy en la página principal, cuando ingreso un título en el buscador, entonces veo resultados relevantes en menos de 2 segundos</li>
-                            <li>Dado que ingreso solo parte del título, cuando escribo al menos 3 caracteres, entonces el sistema muestra sugerencias autocompletadas</li>
-                            <li>Dado que no hay coincidencias, cuando busco un título inexistente, entonces veo el mensaje "No se encontraron resultados"</li>
-                            <li>Dado que el título tiene caracteres especiales, cuando busco con tildes o ñ, entonces el sistema encuentra los libros correctamente</li>
+                            <li>Dado que ingreso un DNI válido, cuando busco, entonces veo los datos completos del paciente en menos de 2 segundos</li>
+                            <li>Dado que busco por apellido paterno, cuando escribo al menos 3 caracteres, entonces veo lista de pacientes que coinciden</li>
+                            <li>Dado que el paciente no existe, cuando busco, entonces veo mensaje "Paciente no encontrado - Registrar nuevo paciente"</li>
+                            <li>Dado que ingreso DNI con formato incorrecto, cuando intento buscar, entonces veo mensaje de error de validación</li>
+                            <li>Dado que encuentro al paciente, cuando selecciono, entonces se carga automáticamente su Historia Clínica</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 1 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 2 pts</p>
+                    <p><strong>Sprint:</strong> 1 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 3 pts</p>
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-04: Base de datos de libros (4 pts) - ✅ COMPLETADA</h4>
+                    <h4>HU-04: Registrar paciente con Historia Clínica (4 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> sistema de la plataforma web</p>
-                    <p><strong>Quiero</strong> tener una base de datos robusta y escalable con el catálogo completo de libros</p>
-                    <p><strong>Para</strong> almacenar, gestionar y consultar eficientemente la información de todos los productos disponibles</p>
+                    <p><strong>Como</strong> recepcionista del laboratorio</p>
+                    <p><strong>Quiero</strong> registrar un nuevo paciente que ya tiene Historia Clínica en el sistema</p>
+                    <p><strong>Para</strong> vincular sus datos con la orden de exámenes de laboratorio</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>La BD debe incluir: ISBN, título, autor, editorial, año, precio, stock, categoría, descripción, imagen</li>
-                        <li>Debe soportar al menos 10,000 registros de libros</li>
-                        <li>Debe tener índices optimizados para búsquedas rápidas</li>
-                        <li>Debe permitir actualizaciones en tiempo real del stock</li>
-                        <li>Debe mantener integridad referencial con otras tablas (autores, editoriales, categorías)</li>
+                        <li>Formulario debe incluir: DNI, nombres, apellidos, fecha de nacimiento, sexo, dirección, teléfono</li>
+                        <li>Debe validar que el DNI no esté duplicado en el sistema</li>
+                        <li>Debe generar automáticamente un número de Historia Clínica único</li>
+                        <li>Campos obligatorios: DNI, nombres, apellidos, fecha de nacimiento</li>
+                        <li>Debe guardar en base de datos AWS RDS</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que necesito consultar un libro, cuando hago una búsqueda por ISBN, entonces obtengo el resultado en menos de 100ms</li>
-                            <li>Dado que actualizo el stock de un libro, cuando se vende una unidad, entonces el stock se decrementa automáticamente</li>
-                            <li>Dado que ingreso un nuevo libro, cuando guardo los datos completos, entonces el libro queda disponible para búsqueda inmediatamente</li>
-                            <li>Dado que necesito reportes, cuando consulto libros por categoría, entonces obtengo resultados ordenados y paginados</li>
-                            <li>Dado que hay múltiples usuarios, cuando varios usuarios consultan simultáneamente, entonces no hay degradación de rendimiento</li>
+                            <li>Dado que ingreso datos completos del paciente, cuando guardo, entonces se crea el registro con Historia Clínica en menos de 3 segundos</li>
+                            <li>Dado que el DNI ya existe, cuando intento registrar, entonces veo mensaje "DNI ya registrado - Paciente existente"</li>
+                            <li>Dado que faltan campos obligatorios, cuando intento guardar, entonces veo mensajes de validación específicos</li>
+                            <li>Dado que registro exitoso, cuando se guarda, entonces se genera número de Historia Clínica automáticamente</li>
+                            <li>Dado que se crea el paciente, cuando finaliza, entonces queda disponible para búsqueda inmediata</li>
                         </ol>
                     </div>
 
@@ -1499,32 +1510,33 @@
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-05: Medio de pago básico (3 pts) - ✅ COMPLETADA</h4>
+                    <h4>HU-05: Registrar paciente sin Historia Clínica (2 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que desea comprar libros</p>
-                    <p><strong>Quiero</strong> poder seleccionar entre diferentes medios de pago</p>
-                    <p><strong>Para</strong> completar mi compra de la forma más conveniente para mí</p>
+                    <p><strong>Como</strong> recepcionista del laboratorio</p>
+                    <p><strong>Quiero</strong> registrar un paciente nuevo que no tiene Historia Clínica previa</p>
+                    <p><strong>Para</strong> poder procesar su orden de exámenes como paciente externo</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Debe ofrecer al menos 2 opciones de pago: tarjeta y transferencia</li>
-                        <li>Debe mostrar iconos visuales de cada método de pago</li>
-                        <li>Debe validar que se haya seleccionado un método antes de continuar</li>
-                        <li>La interfaz debe ser clara y fácil de usar</li>
+                        <li>Formulario simplificado: DNI, nombres, apellidos, edad</li>
+                        <li>No se genera Historia Clínica (paciente externo)</li>
+                        <li>Se marca como "Paciente Externo" en el sistema</li>
+                        <li>Validación básica de datos</li>
+                        <li>Proceso más rápido que HU-04</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que estoy en el checkout, cuando veo las opciones de pago, entonces puedo elegir entre Tarjeta de Crédito/Débito y Transferencia Bancaria</li>
-                            <li>Dado que selecciono tarjeta, cuando hago clic en esa opción, entonces se resalta visualmente mi selección</li>
-                            <li>Dado que no selecciono ningún medio, cuando intento continuar, entonces veo un mensaje de error pidiendo seleccionar</li>
-                            <li>Dado que selecciono transferencia, cuando confirmo, entonces veo instrucciones claras para realizar la transferencia</li>
+                            <li>Dado que ingreso datos mínimos del paciente externo, cuando guardo, entonces se registra sin Historia Clínica</li>
+                            <li>Dado que es paciente externo, cuando veo el registro, entonces aparece marcado como "Externo"</li>
+                            <li>Dado que registro paciente externo, cuando finaliza, entonces puedo proceder con la orden de exámenes</li>
+                            <li>Dado que faltan datos obligatorios, cuando intento guardar, entonces veo validaciones correspondientes</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 1 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 3 pts</p>
+                    <p><strong>Sprint:</strong> 1 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 2 pts</p>
                 </div>
 
                 <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 SPRINT 2 - EN PROGRESO (14 pts)</h2>
