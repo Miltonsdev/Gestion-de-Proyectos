@@ -1539,33 +1539,33 @@
                     <p><strong>Sprint:</strong> 1 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 2 pts</p>
                 </div>
 
-                <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 SPRINT 2 - EN PROGRESO (14 pts)</h2>
+                <h2 style="color: #fdcb6e; margin-top: 40px;">✅ SPRINT 2 - COMPLETADO (11 pts)</h2>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-02: Búsqueda por autor (3 pts) - 🔄 EN PROGRESO</h4>
+                    <h4>HU-01: Solicitar información del paciente (3 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario amante de la lectura</p>
-                    <p><strong>Quiero</strong> buscar libros filtrando por nombre del autor</p>
-                    <p><strong>Para</strong> encontrar todos los libros disponibles de mi autor favorito</p>
+                    <p><strong>Como</strong> paciente que necesita realizarse exámenes de laboratorio</p>
+                    <p><strong>Quiero</strong> solicitar información sobre los exámenes disponibles, precios y requisitos</p>
+                    <p><strong>Para</strong> conocer qué exámenes necesito y cómo prepararme antes de acudir al laboratorio</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Debe tener autocompletado que se active a partir de 3 caracteres</li>
-                        <li>Debe mostrar texto predictivo mientras el usuario escribe</li>
-                        <li>Debe buscar tanto por nombre como por apellido del autor</li>
-                        <li>Debe ordenar resultados alfabéticamente</li>
-                        <li>Debe mostrar la cantidad de libros disponibles por autor</li>
+                        <li>Catálogo de exámenes debe estar visible en la web</li>
+                        <li>Debe mostrar: nombre del examen, precio, tiempo de entrega, requisitos de preparación</li>
+                        <li>Debe incluir buscador por nombre de examen</li>
+                        <li>Debe mostrar exámenes agrupados por categorías (Hematología, Bioquímica, etc.)</li>
+                        <li>Información debe actualizarse desde la base de datos</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que escribo el nombre de un autor, cuando ingreso 3 caracteres, entonces veo sugerencias de autores que coinciden</li>
-                            <li>Dado que selecciono un autor del autocompletado, cuando hago clic en su nombre, entonces veo todos sus libros disponibles</li>
-                            <li>Dado que busco por apellido, cuando escribo solo el apellido, entonces el sistema encuentra al autor correctamente</li>
-                            <li>Dado que el autor tiene múltiples libros, cuando veo los resultados, entonces están ordenados por título o fecha de publicación</li>
-                            <li>Dado que busco un autor sin libros disponibles, cuando selecciono ese autor, entonces veo el mensaje "Este autor no tiene libros disponibles actualmente"</li>
+                            <li>Dado que ingreso a la web, cuando veo el catálogo, entonces veo lista completa de exámenes con precios actualizados</li>
+                            <li>Dado que busco un examen específico, cuando escribo su nombre, entonces veo resultados filtrados en tiempo real</li>
+                            <li>Dado que selecciono un examen, cuando hago clic, entonces veo detalles completos: precio, tiempo de entrega, requisitos</li>
+                            <li>Dado que veo requisitos, cuando leo la preparación, entonces veo instrucciones claras (ej: "Ayuno de 8 horas")</li>
+                            <li>Dado que filtro por categoría, cuando selecciono "Hematología", entonces veo solo exámenes de esa categoría</li>
                         </ol>
                     </div>
 
@@ -1573,30 +1573,30 @@
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-03: Filtrar por precio (3 pts) - 🔄 EN PROGRESO</h4>
+                    <h4>HU-02: Entregar orden de laboratorio (3 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario con presupuesto limitado</p>
-                    <p><strong>Quiero</strong> filtrar los libros por rango de precio usando un slider</p>
-                    <p><strong>Para</strong> encontrar solo libros que estén dentro de mi presupuesto</p>
+                    <p><strong>Como</strong> paciente que ya tiene su orden médica</p>
+                    <p><strong>Quiero</strong> entregar mi orden de laboratorio en recepción y que se registre en el sistema</p>
+                    <p><strong>Para</strong> que el laboratorio procese mis exámenes solicitados por el médico</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>El filtro debe ser un slider de doble control (mínimo y máximo)</li>
-                        <li>Debe actualizar los resultados en tiempo real mientras se mueve el slider</li>
-                        <li>Debe mostrar el rango de precios seleccionado en números</li>
-                        <li>Debe indicar la cantidad de libros encontrados en ese rango</li>
-                        <li>Los precios deben estar en soles peruanos (S/)</li>
+                        <li>Recepcionista debe escanear o ingresar manualmente la orden médica</li>
+                        <li>Sistema debe validar que la orden tenga: nombre del médico, exámenes solicitados, fecha</li>
+                        <li>Debe generar un número de orden único</li>
+                        <li>Debe vincular la orden con el paciente (DNI o Historia Clínica)</li>
+                        <li>Debe imprimir comprobante de recepción con número de orden</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que estoy navegando el catálogo, cuando muevo el slider de precio, entonces veo solo libros dentro del rango seleccionado</li>
-                            <li>Dado que ajusto el precio mínimo, cuando muevo el control izquierdo, entonces el precio máximo no puede ser menor que el mínimo</li>
-                            <li>Dado que selecciono un rango, cuando veo los resultados, entonces se muestra "Mostrando X libros entre S/Y y S/Z"</li>
-                            <li>Dado que no hay libros en el rango, cuando selecciono precios muy altos o bajos, entonces veo "No hay libros en este rango de precios"</li>
-                            <li>Dado que combino con otros filtros, cuando uso precio + autor, entonces veo libros que cumplen ambas condiciones</li>
+                            <li>Dado que entrego mi orden médica, cuando recepción la registra, entonces se genera número de orden único</li>
+                            <li>Dado que la orden está incompleta, cuando falta información, entonces veo mensaje de error específico</li>
+                            <li>Dado que se registra la orden, cuando finaliza, entonces recibo comprobante impreso con número de orden</li>
+                            <li>Dado que soy paciente registrado, cuando entrego orden, entonces se vincula automáticamente con mi Historia Clínica</li>
+                            <li>Dado que la orden se registra, cuando se guarda, entonces queda visible en el sistema para el área de procesamiento</li>
                         </ol>
                     </div>
 
@@ -1604,224 +1604,167 @@
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-08: Carrito de compra (8 pts) - 📋 PLANIFICADA</h4>
+                    <h4>HU-06: Registrar datos del paciente y orden de exámenes (5 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que desea comprar múltiples libros</p>
-                    <p><strong>Quiero</strong> agregar varios libros a un carrito de compras</p>
-                    <p><strong>Para</strong> realizar una sola transacción con todos mis libros seleccionados</p>
+                    <p><strong>Como</strong> recepcionista del laboratorio</p>
+                    <p><strong>Quiero</strong> registrar en una sola transacción los datos del paciente y su orden de exámenes</p>
+                    <p><strong>Para</strong> agilizar el proceso de atención y evitar errores de vinculación</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Debe permitir agregar/eliminar libros del carrito</li>
-                        <li>Debe mostrar subtotal por libro y total general</li>
-                        <li>Debe persistir en la sesión del usuario</li>
-                        <li>Debe validar stock disponible antes de agregar</li>
-                        <li>Debe permitir modificar cantidades</li>
-                        <li>Debe mostrar imagen, título y precio de cada libro</li>
-                        <li>Debe calcular impuestos si aplica</li>
+                        <li>Formulario integrado: datos del paciente + selección de exámenes</li>
+                        <li>Debe permitir seleccionar múltiples exámenes de un catálogo</li>
+                        <li>Debe calcular el costo total automáticamente</li>
+                        <li>Debe generar identificador único de orden vinculado al paciente</li>
+                        <li>Transacción debe ser atómica (todo o nada) para mantener integridad de datos</li>
+                        <li>Debe guardar en AWS RDS con respaldo automático</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que veo un libro que me interesa, cuando hago clic en "Agregar al carrito", entonces el libro se agrega y veo confirmación visual</li>
-                            <li>Dado que tengo libros en el carrito, cuando voy a otra página y regreso, entonces mis libros siguen en el carrito</li>
-                            <li>Dado que quiero cambiar la cantidad, cuando aumento/disminuyo, entonces el subtotal se recalcula automáticamente</li>
-                            <li>Dado que un libro no tiene stock, cuando intento agregarlo, entonces veo "Producto sin stock disponible"</li>
-                            <li>Dado que quiero eliminar un libro, cuando hago clic en el icono de eliminar, entonces el libro se quita y el total se actualiza</li>
-                            <li>Dado que veo el total, cuando reviso el desglose, entonces veo: subtotal, descuentos (si aplica), envío, e IGV</li>
-                            <li>Dado que el carrito está vacío, cuando lo abro, entonces veo "Tu carrito está vacío" con un botón para seguir comprando</li>
+                            <li>Dado que registro paciente y orden, cuando guardo, entonces ambos se crean en una sola transacción</li>
+                            <li>Dado que selecciono exámenes, cuando agrego al carrito, entonces veo costo total calculado automáticamente</li>
+                            <li>Dado que hay error en el registro, cuando falla, entonces se hace rollback completo (no se guarda nada)</li>
+                            <li>Dado que la transacción es exitosa, cuando finaliza, entonces se genera número de orden vinculado al paciente</li>
+                            <li>Dado que se completa el registro, cuando termina, entonces el paciente y orden quedan disponibles para procesamiento</li>
+                            <li>Dado que selecciono perfil de exámenes, cuando elijo "Perfil Hepático", entonces se agregan todos los exámenes del paquete</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 2 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 8 pts</p>
+                    <p><strong>Sprint:</strong> 2 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 5 pts</p>
                 </div>
 
-                <h2 style="color: #3498db; margin-top: 40px;">📋 SPRINT 3 - PLANIFICADO (21 pts)</h2>
+                <h2 style="color: #3498db; margin-top: 40px;">✅ SPRINT 3 - COMPLETADO (5 pts)</h2>
 
-                <div class="user-story-detailed priority-medium">
-                    <h4>HU-06: Filtrar por género literario (3 pts) - 📋 PLANIFICADA</h4>
+                <div class="user-story-detailed priority-high">
+                    <h4>HU-08: Registrar resultados de laboratorio (5 pts) - ✅ COMPLETADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario con preferencias específicas de lectura</p>
-                    <p><strong>Quiero</strong> filtrar libros por género literario (ficción, no-ficción, misterio, romance, etc.)</p>
-                    <p><strong>Para</strong> encontrar libros del tipo de contenido que me gusta leer</p>
+                    <p><strong>Como</strong> técnico de laboratorio</p>
+                    <p><strong>Quiero</strong> registrar los resultados de los exámenes procesados en interfaces tipo grilla</p>
+                    <p><strong>Para</strong> ingresar los valores obtenidos de forma rápida y organizada</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Debe mostrar todos los géneros disponibles en el catálogo</li>
-                        <li>Debe permitir selección múltiple de géneros</li>
-                        <li>Debe mostrar cantidad de libros por género</li>
-                        <li>Los géneros pueden incluir: Ficción, No-ficción, Misterio, Romance, Ciencia Ficción, Fantasía, Historia, Biografía, etc.</li>
+                        <li>Interfaz tipo grilla (similar a Excel) para ingreso masivo de resultados</li>
+                        <li>Debe mostrar: nombre del examen, unidad de medida, valores referenciales (min-max)</li>
+                        <li>Debe validar que los valores ingresados estén en formato numérico correcto</li>
+                        <li>Debe alertar visualmente si el valor está fuera del rango referencial</li>
+                        <li>Debe cambiar automáticamente el estado del examen de "Pendiente" a "Procesado"</li>
+                        <li>Debe aplicar código de colores: Verde (Palegreen) para procesados, Magenta (Thistle) para pendientes</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que veo el filtro de género, cuando lo abro, entonces veo una lista de todos los géneros con cantidad de libros (ej: "Ficción (145)")</li>
-                            <li>Dado que selecciono un género, cuando hago clic, entonces veo solo libros de ese género</li>
-                            <li>Dado que selecciono múltiples géneros, cuando marco varios checkboxes, entonces veo libros que pertenecen a cualquiera de esos géneros</li>
-                            <li>Dado que combino con otros filtros, cuando uso género + precio, entonces veo libros que cumplen ambas condiciones</li>
+                            <li>Dado que ingreso resultados en la grilla, cuando escribo valores, entonces se valida formato numérico en tiempo real</li>
+                            <li>Dado que un valor está fuera de rango, cuando lo ingreso, entonces veo alerta visual (color rojo o advertencia)</li>
+                            <li>Dado que completo todos los resultados de un examen, cuando guardo, entonces el estado cambia automáticamente a "Procesado"</li>
+                            <li>Dado que veo la lista de exámenes, cuando reviso estados, entonces los procesados aparecen en verde pálido (Palegreen)</li>
+                            <li>Dado que hay exámenes pendientes, cuando veo la lista, entonces aparecen en magenta claro (Thistle)</li>
+                            <li>Dado que guardo resultados, cuando finaliza, entonces se registra en tabla de auditoría con usuario y timestamp</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 3 | <strong>Prioridad:</strong> Media | <strong>Estimación:</strong> 3 pts</p>
+                    <p><strong>Sprint:</strong> 3 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 5 pts</p>
                 </div>
 
-                <div class="user-story-detailed priority-medium">
-                    <h4>HU-07: Búsqueda por zona geográfica (5 pts) - 📋 PLANIFICADA</h4>
+                <h2 style="color: #9b59b6; margin-top: 40px;">🔄 SPRINT 4 - EN PROGRESO (9 pts)</h2>
+
+                <div class="user-story-detailed priority-high">
+                    <h4>HU-07: Entregar resultados de exámenes (3 pts) - 🔄 EN PROGRESO</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que prefiere comprar en tiendas cercanas</p>
-                    <p><strong>Quiero</strong> buscar libros filtrando por disponibilidad en mi zona geográfica</p>
-                    <p><strong>Para</strong> poder recogerlos en tienda o recibir entregas más rápidas</p>
+                    <p><strong>Como</strong> recepcionista del laboratorio</p>
+                    <p><strong>Quiero</strong> generar e imprimir los informes finales de resultados en diferentes formatos</p>
+                    <p><strong>Para</strong> entregar los resultados al paciente de forma profesional y completa</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Debe detectar la ubicación del usuario (con permiso) o permitir ingresarla manualmente</li>
-                        <li>Debe mostrar tiendas disponibles en radio de X km</li>
-                        <li>Debe indicar stock disponible por tienda</li>
-                        <li>Debe ordenar resultados por distancia</li>
+                        <li>Opciones de impresión: Con/Sin comentarios, Agrupados por perfil, Formatos A4 y A5</li>
+                        <li>Salida en hoja membretada con logo del laboratorio</li>
+                        <li>Generación de PDF almacenado en AWS S3 para descarga posterior</li>
+                        <li>Auditoría completa: IP de computadora, cuenta de usuario, fecha/hora, datos del paciente</li>
+                        <li>Registro en tabla "visor de sucesos" cada vez que se imprime</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que permito ubicación, cuando activo el filtro geográfico, entonces veo libros disponibles en tiendas cercanas (máximo 10 km)</li>
-                            <li>Dado que ingreso mi distrito manualmente, cuando selecciono mi zona, entonces veo libros en tiendas de ese distrito</li>
-                            <li>Dado que veo un libro, cuando reviso disponibilidad, entonces veo "Disponible en: Tienda Miraflores (2.3 km), Tienda San Isidro (4.1 km)"</li>
-                            <li>Dado que no hay tiendas cerca, cuando busco en zona sin cobertura, entonces veo "No hay tiendas en tu zona, pero puedes comprar online con envío a domicilio"</li>
+                            <li>Dado que selecciono opciones de impresión, cuando elijo "Con comentarios", entonces el PDF incluye las observaciones médicas</li>
+                            <li>Dado que imprimo resultados, cuando finaliza, entonces se guarda en AWS S3 con nombre único</li>
+                            <li>Dado que se imprime un resultado, cuando se ejecuta, entonces se registra en visor de sucesos: IP, usuario, fecha/hora y paciente</li>
+                            <li>Dado que selecciono formato A5, cuando imprimo, entonces el documento se ajusta a ese tamaño</li>
+                            <li>Dado que los exámenes son de un perfil, cuando selecciono "Agrupados", entonces se imprimen juntos en el mismo documento</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 3 | <strong>Prioridad:</strong> Media | <strong>Estimación:</strong> 5 pts</p>
+                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 3 pts</p>
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-13: Integración pasarela de pago completa (13 pts) - 📋 PLANIFICADA</h4>
+                    <h4>HU-09: Evaluar resultados de laboratorio (4 pts) - 🔄 EN PROGRESO</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que desea pagar de forma segura</p>
-                    <p><strong>Quiero</strong> completar mi pago a través de una pasarela integrada y confiable</p>
-                    <p><strong>Para</strong> finalizar mi compra con total seguridad y confianza</p>
+                    <p><strong>Como</strong> Dr. Tecnólogo o Médico Patólogo</p>
+                    <p><strong>Quiero</strong> revisar y validar los resultados procesados antes de su entrega</p>
+                    <p><strong>Para</strong> asegurar la calidad y exactitud de los informes médicos</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Integración con Mercado Pago como pasarela principal</li>
-                        <li>Soporte para Yape y Plin (wallets digitales peruanas)</li>
-                        <li>Opción para subir comprobante de transferencia bancaria</li>
-                        <li>Link visible a atención al cliente</li>
-                        <li>Encriptación SSL en todas las transacciones</li>
-                        <li>Confirmación de pago exitoso con número de orden</li>
+                        <li>Pantalla de validación con lista de exámenes procesados pendientes de aprobación</li>
+                        <li>Código de colores: Verde para aprobados, Rojo claro para no aprobados/observados</li>
+                        <li>Botones de acción: "Aprobar" y "Observar"</li>
+                        <li>Botón "Actualizar Atención" para aplicar cambios de estado masivamente</li>
+                        <li>Alertas visuales para valores fuera de rango referencial</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que selecciono pago con tarjeta, cuando ingreso a Mercado Pago, entonces veo interfaz segura con candado SSL</li>
-                            <li>Dado que pago con Yape/Plin, cuando selecciono esa opción, entonces veo código QR para escanear y pagar</li>
-                            <li>Dado que pago por transferencia, cuando selecciono esa opción, entonces puedo subir foto del voucher y ver datos bancarios</li>
-                            <li>Dado que el pago es exitoso, cuando se procesa, entonces recibo confirmación con número de orden y correo electrónico</li>
-                            <li>Dado que el pago falla, cuando hay error, entonces veo mensaje claro del error y puedo reintentar</li>
-                            <li>Dado que acepto visa, MasterCard o Paypal, cuando selecciono tarjeta, entonces puedo usar cualquiera de estas opciones</li>
-                            <li>Dado que pago genera notificación, cuando se confirma, entonces tanto usuario como administrador reciben notificación</li>
-                            <li>Dado que se adjunta boleta/factura, cuando llega la notificación, entonces incluye el documento tributario en PDF</li>
+                            <li>Dado que veo la lista de exámenes, cuando están aprobados, entonces aparecen en color verde</li>
+                            <li>Dado que un examen tiene observaciones, cuando lo marco, entonces aparece en rojo claro</li>
+                            <li>Dado que hago clic en "Aprobar", cuando confirmo, entonces el examen cambia a estado "Aprobado"</li>
+                            <li>Dado que hago clic en "Observar", cuando confirmo, entonces se abre modal para ingresar comentario</li>
+                            <li>Dado que hay valores fuera de rango, cuando los veo, entonces aparecen con alerta visual destacada</li>
+                            <li>Dado que hago clic en "Actualizar Atención", cuando ejecuto, entonces se aplican todos los cambios de estado</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 3 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 13 pts</p>
-                </div>
-
-                <h2 style="color: #9b59b6; margin-top: 40px;">📋 SPRINT 4 - PLANIFICADO (38 pts)</h2>
-
-                <div class="user-story-detailed priority-medium">
-                    <h4>HU-09: Autocompletado por palabras clave (8 pts) - 📋 PLANIFICADA</h4>
-
-                    <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que busca libros frecuentemente</p>
-                    <p><strong>Quiero</strong> ver sugerencias de búsqueda basadas en palabras clave que escribo</p>
-                    <p><strong>Para</strong> encontrar libros más rápido usando búsquedas previas y populares</p>
-
-                    <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
-                    <ul>
-                        <li>Desplegable con máximo 5 opciones similares a la búsqueda</li>
-                        <li>Basado en búsquedas más recientes del usuario</li>
-                        <li>Relacionado con búsquedas pasadas de máximo 30 días</li>
-                        <li>Diseño del desplegable: 35x200 píxeles</li>
-                        <li>Ubicación: debajo del header de búsqueda</li>
-                    </ul>
-
-                    <div class="acceptance-criteria">
-                        <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
-                        <ol>
-                            <li>Dado que empiezo a escribir, cuando ingreso al menos 2 caracteres, entonces veo desplegable con máximo 5 sugerencias</li>
-                            <li>Dado que busqué algo recientemente, cuando empiezo a escribir lo mismo, entonces aparece mi búsqueda previa primero</li>
-                            <li>Dado que las sugerencias tienen relación, cuando veo el desplegable, entonces muestra búsquedas de los últimos 30 días relacionadas</li>
-                            <li>Dado que hago clic en una sugerencia, cuando selecciono, entonces se ejecuta esa búsqueda automáticamente</li>
-                            <li>Dado que el diseño debe ser específico, cuando veo el desplegable, entonces mide exactamente 35x200 píxeles y está debajo del buscador</li>
-                        </ol>
-                    </div>
-
-                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Media | <strong>Estimación:</strong> 8 pts</p>
-                </div>
-
-                <div class="user-story-detailed priority-medium">
-                    <h4>HU-10: Lista de favoritos (5 pts) - 📋 PLANIFICADA</h4>
-
-                    <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario registrado</p>
-                    <p><strong>Quiero</strong> dar "like" a libros y tenerlos guardados como favoritos</p>
-                    <p><strong>Para</strong> acceder rápidamente a los libros que me interesan sin tener que buscarlos nuevamente</p>
-
-                    <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
-                    <ul>
-                        <li>Botón de "corazón" visible en cada libro</li>
-                        <li>Sección "Mis Favoritos" en el perfil del usuario</li>
-                        <li>Persistencia de favoritos en la base de datos</li>
-                        <li>Notificaciones cuando libro favorito baja de precio o entra en stock</li>
-                    </ul>
-
-                    <div class="acceptance-criteria">
-                        <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
-                        <ol>
-                            <li>Dado que veo un libro, cuando hago clic en el ícono de corazón, entonces se marca como favorito y cambia de color</li>
-                            <li>Dado que tengo favoritos, cuando voy a "Mis Favoritos", entonces veo todos los libros que marqué</li>
-                            <li>Dado que un favorito baja de precio, cuando hay cambio, entonces recibo notificación por email</li>
-                            <li>Dado que quito un favorito, cuando hago clic nuevamente en corazón, entonces se elimina de mi lista</li>
-                        </ol>
-                    </div>
-
-                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Media | <strong>Estimación:</strong> 5 pts</p>
+                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 4 pts</p>
                 </div>
 
                 <div class="user-story-detailed priority-high">
-                    <h4>HU-11: Lugar de envío y cálculo de costos (5 pts) - 📋 PLANIFICADA</h4>
+                    <h4>HU-10: Realizar observaciones del resultado (2 pts) - 📋 PLANIFICADA</h4>
 
                     <p><strong>📇 CARD (Tarjeta):</strong></p>
-                    <p><strong>Como</strong> usuario que desea recibir libros en casa</p>
-                    <p><strong>Quiero</strong> ingresar mi dirección de envío y ver el costo de delivery</p>
-                    <p><strong>Para</strong> saber el costo total antes de confirmar la compra</p>
+                    <p><strong>Como</strong> Dr. Tecnólogo o Médico Patólogo</p>
+                    <p><strong>Quiero</strong> agregar comentarios técnicos o rechazos a los resultados de exámenes</p>
+                    <p><strong>Para</strong> documentar observaciones médicas importantes antes de la entrega</p>
 
                     <p style="margin-top: 15px;"><strong>💬 CONVERSATION (Conversación):</strong></p>
                     <ul>
-                        <li>Formulario de dirección completa (calle, número, distrito, provincia, referencia)</li>
-                        <li>Cálculo automático de costo de envío según distrito</li>
-                        <li>Validación de zonas de cobertura</li>
-                        <li>Estimación de tiempo de entrega</li>
+                        <li>Ventana modal emergente para escribir observaciones</li>
+                        <li>Restricción de longitud: Máximo 100 caracteres</li>
+                        <li>Botones claros: "Guardar" (confirma y cierra) y "Cancelar" (cierra sin guardar)</li>
+                        <li>Las observaciones se vinculan al examen específico</li>
+                        <li>Se pueden incluir en el reporte final si se selecciona la opción "Con comentarios"</li>
                     </ul>
 
                     <div class="acceptance-criteria">
                         <strong>✅ CONFIRMATION (Criterios de Aceptación):</strong>
                         <ol>
-                            <li>Dado que ingreso mi dirección, cuando completo el formulario, entonces veo automáticamente el costo de envío calculado</li>
-                            <li>Dado que estoy en zona de cobertura, cuando ingreso mi distrito, entonces veo "Tiempo estimado: 24-48 horas"</li>
-                            <li>Dado que no hay cobertura, cuando ingreso distrito fuera de rango, entonces veo "No hacemos envíos a esta zona actualmente"</li>
-                            <li>Dado que el pedido es grande, cuando supero S/100, entonces veo "Envío gratis" aplicado automáticamente</li>
+                            <li>Dado que hago clic en "Observar", cuando se abre el modal, entonces veo campo de texto con límite de 100 caracteres</li>
+                            <li>Dado que escribo más de 100 caracteres, cuando intento continuar, entonces el sistema bloquea la entrada</li>
+                            <li>Dado que hago clic en "Guardar", cuando confirmo, entonces la observación se guarda y el modal se cierra</li>
+                            <li>Dado que hago clic en "Cancelar", cuando ejecuto, entonces el modal se cierra sin guardar cambios</li>
+                            <li>Dado que guardo una observación, cuando se registra, entonces queda vinculada al examen para incluirse en el reporte</li>
                         </ol>
                     </div>
 
-                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 5 pts</p>
+                    <p><strong>Sprint:</strong> 4 | <strong>Prioridad:</strong> Alta | <strong>Estimación:</strong> 2 pts</p>
                 </div>
 
                 <div class="user-story-detailed priority-high">
