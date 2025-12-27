@@ -1819,47 +1819,47 @@
                 <h3>📝 Ejemplos de Criterios de Aceptación Detallados</h3>
 
                 <div class="user-story-detailed">
-                    <h4>Ejemplo 1: Carrito de Compras - Criterios Completos del PDF</h4>
+                    <h4>Ejemplo 1: HU-01 - Solicitar Información (Catálogo de Exámenes)</h4>
                     <div class="acceptance-criteria">
                         <strong>Criterios de Aceptación:</strong>
                         <ol>
-                            <li>Que acepten Visa, MasterCard o Paypal/Efectivo</li>
-                            <li>Que genere una notificación al usuario y al cliente final sobre el pago</li>
-                            <li>Que en la notificación se adjunte su boleta o factura de pedido</li>
-                            <li>Como propietario de una tienda, quiero rechazar pedidos de menos de 10 dólares, porque
-                                no son rentables</li>
-                            <li>Como propietario de la tienda, quiero rechazar clientes fuera de Perú, porque los gastos
-                                de envío hacen que estos pedidos no sean rentables</li>
-                            <li>Como propietario de la tienda, quiero cancelar automáticamente los pedidos que no ha
-                                recibido el pago dentro de las 48 horas, para venderlos nuevamente a otros clientes</li>
+                            <li>Que el catálogo muestre solo exámenes activos y disponibles en GSTAR LAB.</li>
+                            <li>Que permita filtrar por tipo de examen (ej: Hematología, Bioquímica).</li>
+                            <li>Que incluya precios actualizados y tiempos de entrega estimados.</li>
+                            <li>Que muestre requisitos de preparación (ej: ayuno para glucosa).</li>
+                            <li>Que valide que el paciente pueda acceder sin registro previo.</li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>Ejemplo 2: Pasarela de Pago - Criterios Completos del PDF</h4>
+                    <h4>Ejemplo 2: HU-03 - Verificar Datos del Paciente</h4>
                     <div class="acceptance-criteria">
                         <strong>Criterios de Aceptación:</strong>
                         <ol>
-                            <li>Interfaz previamente testeada que sea amigable con el usuario</li>
-                            <li>Permitir pago en diferentes divisas</li>
-                            <li>Opción para subir constancia de pago por transferencia</li>
-                            <li>Link a atención al cliente</li>
-                            <li>Que tenga habilitado un campo para recibir ofertas de la tienda</li>
+                            <li>Que acepte búsqueda por DNI (8 dígitos exactos) o apellido paterno (máx. 30 caracteres).
+                            </li>
+                            <li>Que bloquee caracteres especiales o numéricos en campos de texto.</li>
+                            <li>Que muestre mensaje claro si el paciente no existe en la base de datos de GSTAR LAB.
+                            </li>
+                            <li>Que liste atenciones previas en orden descendente si el paciente tiene historia clínica.
+                            </li>
+                            <li>Que tome menos de 2 segundos en responder para una experiencia fluida.</li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>Ejemplo 3: Autocompletado por palabras clave - Criterios Completos del PDF</h4>
+                    <h4>Ejemplo 3: HU-06 - Registrar Datos del Paciente y Orden</h4>
                     <div class="acceptance-criteria">
                         <strong>Criterios de Aceptación:</strong>
                         <ol>
-                            <li>Desplegable con opciones similares a la búsqueda (máximo 5 opciones)</li>
-                            <li>Solo base de búsquedas más recientes</li>
-                            <li>Relacione con búsquedas pasadas - máximo 30 días</li>
-                            <li>Diseño del desplegable: 35x200 píx</li>
-                            <li>Ubicación debajo del header de búsqueda</li>
+                            <li>Que permita seleccionar exámenes uno por uno desde el catálogo de GSTAR LAB.</li>
+                            <li>Que calcule automáticamente el costo total basado en precios vigentes.</li>
+                            <li>Que genere un número de orden único y correlativo vinculado al paciente.</li>
+                            <li>Que registre la transacción atómica (todo o nada) en AWS RDS.</li>
+                            <li>Que bloquee edición una vez impresa la orden, salvo por usuario administrador.</li>
+                            <li>Que incluya auditoría en "visor de sucesos" con IP, usuario y timestamp.</li>
                         </ol>
                     </div>
                 </div>
@@ -1867,54 +1867,50 @@
                 <h3>🎯 MoSCoW Prioritization</h3>
                 <div class="grid-2">
                     <div class="card" style="border-left: 4px solid #e74c3c;">
-                        <h4>Must Have (Debe Tener)</h4>
+                        <h4>Must Have (Debe Tener) - Críticas para GSTAR LAB</h4>
                         <ul>
-                            <li>Buscar libro por título, autor, precio</li>
-                            <li>Góndola de libros / Catálogo</li>
-                            <li>Shopping Cart (Carrito)</li>
-                            <li>Buscador con filtros</li>
-                            <li>Ver catálogo completo</li>
-                            <li>Filtrar libros por categorías</li>
-                            <li>Lista de libros favoritos</li>
-                            <li>Sistema de pagos seguro</li>
+                            <li>HU-03: Verificar datos del paciente (evita duplicados y errores)</li>
+                            <li>HU-04: Registrar paciente con historia clínica (base para atención)</li>
+                            <li>HU-06: Registrar orden integrada (transacción clave para ingresos)</li>
+                            <li>HU-08: Registrar resultados (procesamiento diario obligatorio)</li>
+                            <li>HU-Tec02: Despliegue de BD (almacenamiento seguro en AWS)</li>
                         </ul>
                     </div>
                     <div class="card" style="border-left: 4px solid #f39c12;">
-                        <h4>Should Have (Debería Tener)</h4>
+                        <h4>Should Have (Debería Tener) - Mejoras Operativas</h4>
                         <ul>
-                            <li>Búsqueda por categoría/género</li>
-                            <li>Ver ediciones disponibles</li>
-                            <li>Best Sellers</li>
-                            <li>Lista de sugeridos/recomendaciones</li>
-                            <li>Filtro por autor</li>
-                            <li>Búsqueda por zona geográfica</li>
-                            <li>Tracking de envíos</li>
+                            <li>HU-01: Solicitar información (catálogo web para pacientes)</li>
+                            <li>HU-02: Entregar orden (registro inicial de atención)</li>
+                            <li>HU-05: Registrar paciente sin HC (atención rápida a externos)</li>
+                            <li>HU-07: Entregar resultados (PDFs con membrete)</li>
+                            <li>HU-Tec01: Configuración de red (seguridad AWS)</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="grid-2" style="margin-top: 20px;">
                     <div class="card" style="border-left: 4px solid #3498db;">
-                        <h4>Could Have (Podría Tener)</h4>
+                        <h4>Could Have (Podría Tener) - Funcionalidades Avanzadas</h4>
                         <ul>
-                            <li>Reseñas y calificaciones de usuarios</li>
-                            <li>Wishlist compartible</li>
-                            <li>Comparador de precios</li>
-                            <li>Vista previa del libro (primeras páginas)</li>
-                            <li>Club de lectura virtual</li>
+                            <li>HU-09: Evaluar resultados (validación médica automática)</li>
+                            <li>HU-10: Realizar observaciones (comentarios técnicos)</li>
+                            <li>HU-Tec03: Entorno CI/CD (automatización de despliegues)</li>
+                            <li>Dashboard gerencial con estadísticas mensuales</li>
+                            <li>Integración con apps móviles para resultados</li>
                         </ul>
                     </div>
                     <div class="card" style="border-left: 4px solid #95a5a6;">
-                        <h4>Won't Have (No Tendrá - Esta versión)</h4>
+                        <h4>Won't Have (No Tendrá - Esta Versión)</h4>
                         <ul>
-                            <li>eBooks / Libros digitales</li>
-                            <li>Audiolibros</li>
-                            <li>Suscripción mensual tipo Netflix</li>
-                            <li>Chat en vivo 24/7</li>
-                            <li>App móvil nativa</li>
+                            <li>Chatbot para consultas (prioridad baja vs. atención presencial)</li>
+                            <li>eBooks o recursos educativos (fuera del scope de laboratorio)</li>
+                            <li>Integración con redes sociales (no crítico para operaciones)</li>
+                            <li>App nativa móvil (usar web responsive primero)</li>
+                            <li>Multilenguaje (solo español para Perú)</li>
                         </ul>
                     </div>
                 </div>
+
 
                 <h3>📊 Análisis de Estimaciones - GSTAR LAB</h3>
                 <div class="card">
