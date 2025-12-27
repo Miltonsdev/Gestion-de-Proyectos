@@ -768,7 +768,6 @@
             <button class="tab" onclick="showTab('review')">✅ Sprint Review</button>
             <button class="tab" onclick="showTab('retrospective')">🔄 Retrospectiva</button>
             <button class="tab" onclick="showTab('team')">👨‍💻 Equipo</button>
-            <button class="tab" onclick="showTab('okr')">🎯 OKRs</button>
         </div>
 
         <div class="content">
@@ -2643,279 +2642,367 @@
 
                 <div class="card">
                     <h3>🎯 Historias Refinadas para Sprint 1</h3>
-                    <p><strong>Objetivo:</strong> Preparar historias fundamentales para la infraestructura base del
-                        sistema</p>
+                    <p><strong>Objetivo:</strong> Preparar historias fundamentales para el módulo de admisión y
+                        seguridad del sistema
+                        GSTAR LAB (login/roles y gestión de pacientes)</p>
                 </div>
 
                 <div class="grid-2">
                     <div class="user-story-detailed">
-                        <h4>HU-01: Búsqueda por Título (2 pts)</h4>
+                        <h4>RFN-03/07: Login seguro + roles (Recepción/Laboratorista/Médico) (4 pts)</h4>
 
                         <p><strong>📐 Slicing por Pasos del Requerimiento:</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Historia Original:</strong> "Como usuario quiero buscar libros por título"
+                            <p><strong>Historia Original:</strong> "Como usuario del sistema quiero iniciar sesión para
+                                acceder según mi
+                                rol"</p>
+
+                            <p><strong>Paso 1:</strong> Login funcional (usuario/contraseña) con AWS Cognito</p>
+                            <p><strong>Paso 2:</strong> Restricción de acceso por rol (Recepción/Laboratorista/Médico)
                             </p>
-                            <p><strong>Paso 1:</strong> Buscador simple con entrada de texto</p>
-                            <p><strong>Paso 2:</strong> Resultados básicos sin filtros</p>
-                            <p><strong>Paso 3:</strong> Optimización de búsqueda (no incluido en Sprint 1)</p>
+                            <p><strong>Paso 3:</strong> Gestión avanzada (recuperación de contraseña / MFA) (no incluido
+                                en Sprint 1)</p>
 
                             <p style="margin-top: 15px;"><strong>Slicing aplicado:</strong></p>
                             <ul>
-                                <li>✅ <strong>Como</strong> usuario <strong>quiero</strong> ingresar texto en un
-                                    buscador <strong>para</strong> iniciar búsqueda</li>
-                                <li>✅ <strong>Como</strong> cliente <strong>quiero</strong> ver resultados que
-                                    coincidan con mi búsqueda <strong>para</strong> encontrar el libro</li>
+                                <li>✅ <strong>Como</strong> usuario <strong>quiero</strong> iniciar sesión con
+                                    credenciales
+                                    <strong>para</strong> acceder al sistema
+                                </li>
+                                <li>✅ <strong>Como</strong> administrador <strong>quiero</strong> que el sistema
+                                    restrinja pantallas por
+                                    rol <strong>para</strong> proteger información clínica</li>
                             </ul>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Limitar búsqueda a 20 caracteres máximo<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Mockup aprobado<br>
-                            <strong>Camino A:</strong> Implementar búsqueda exacta primero<br>
-                            <strong>Camino B:</strong> Agregar búsqueda difusa en siguiente sprint
+                            <strong>Observación:</strong> Definir roles mínimos desde el inicio (Recepción,
+                            Laboratorista, Médico)<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Roles aprobados<br>
+                            <strong>Camino A:</strong> Login + RBAC básico primero (Sprint 1)<br>
+                            <strong>Camino B:</strong> MFA/recuperación avanzada en Sprint posterior
                         </div>
                     </div>
 
                     <div class="user-story-detailed">
-                        <h4>HU-04: Base de Datos de Libros (4 pts)</h4>
+                        <h4>HU-03: Búsqueda avanzada de pacientes (DNI/Apellido) con autocompletado (3 pts)</h4>
 
-                        <p><strong>📐 Slicing por Operaciones:</strong></p>
+                        <p><strong>📐 Slicing por Operaciones / Complejidad de Búsqueda:</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Historia Original:</strong> "Como sistema quiero una BD completa de libros"
-                            </p>
+                            <p><strong>Historia Original:</strong> "Como recepción quiero buscar pacientes por DNI o
+                                apellido para
+                                registrarlos rápidamente en admisión"</p>
 
-                            <p style="margin-top: 15px;"><strong>División por operaciones CRUD:</strong></p>
+                            <p style="margin-top: 15px;"><strong>División por niveles de búsqueda:</strong></p>
                             <ul>
-                                <li>✅ <strong>Como</strong> propietario de tienda <strong>quiero</strong> agregar
-                                    nuevos productos en el catálogo <strong>para</strong> incrementar mi inventario
+                                <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> buscar por DNI exacto
+                                    <strong>para</strong>
+                                    encontrar al paciente en segundos
                                 </li>
-                                <li>✅ <strong>Como</strong> propietario de tienda <strong>quiero</strong> actualizar
-                                    información de productos existentes <strong>para</strong> mantener datos
-                                    actualizados</li>
-                                <li>✅ <strong>Como</strong> sistema <strong>quiero</strong> consultar productos
-                                    rápidamente <strong>para</strong> mostrar resultados en tiempo real</li>
+                                <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> buscar por apellido
+                                    (contiene/empieza con)
+                                    <strong>para</strong> ubicar pacientes sin DNI a la mano
+                                </li>
+                                <li>⏭️ <strong>Como</strong> recepción <strong>quiero</strong> filtros avanzados
+                                    (edad/sexo/fecha registro)
+                                    <strong>para</strong> reducir resultados (no incluido en Sprint 1)
+                                </li>
                             </ul>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Priorizar campos esenciales: ISBN, título, autor, precio,
-                            stock<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Esquema de BD definido<br>
-                            <strong>Camino Elegido:</strong> Implementar índices en ISBN y título para optimizar
-                            búsquedas
+                            <strong>Observación:</strong> Priorizar DNI y Apellidos; devolver máx. 20 resultados en
+                            autocompletado<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Mockup aprobado<br>
+                            <strong>Camino Elegido:</strong> Búsqueda por DNI exacto + apellido con autocompletado
+                            (debounce)
                         </div>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>HU-05: Medio de Pago Básico (3 pts)</h4>
+                    <h4>HU-04 / HU-05: Registro de paciente (completo con Historia Clínica + registro rápido) (3 pts)
+                    </h4>
 
                     <p><strong>📐 Slicing por Reglas de Criterios de Aceptación:</strong></p>
                     <div class="acceptance-criteria">
-                        <p><strong>Historia Original:</strong> "Como usuario quiero seleccionar método de pago"</p>
+                        <p><strong>Historia Original:</strong> "Como recepción quiero registrar un paciente para generar
+                            su Historia
+                            Clínica y atenderlo en el laboratorio"</p>
 
-                        <p style="margin-top: 15px;"><strong>División por reglas comerciales:</strong></p>
+                        <p style="margin-top: 15px;"><strong>División por reglas clínicas y de negocio:</strong></p>
                         <ul>
-                            <li>✅ <strong>Como</strong> propietario de la tienda <strong>quiero</strong> que los
-                                pedidos se validen solo si hay método de pago seleccionado <strong>para</strong>
-                                evitar pedidos sin pago</li>
-                            <li>✅ <strong>Como</strong> propietario de la tienda <strong>quiero</strong> ofrecer al
-                                menos 2 opciones de pago <strong>para</strong> dar flexibilidad al cliente</li>
+                            <li>✅ <strong>Como</strong> sistema <strong>quiero</strong> validar unicidad de DNI en el
+                                Backend
+                                <strong>para</strong> evitar registros duplicados
+                            </li>
+                            <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> un registro rápido (datos
+                                mínimos)
+                                <strong>para</strong> atender pacientes sin demoras
+                            </li>
+                            <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> un registro completo (Historia
+                                Clínica)
+                                <strong>para</strong> mantener información clínica requerida
+                            </li>
+                            <li>⏭️ <strong>Como</strong> sistema <strong>quiero</strong> validaciones avanzadas (campo
+                                obligatorio por
+                                tipo de paciente, normalización de dirección) <strong>para</strong> mejorar calidad de
+                                datos (Sprint posterior)</li>
                         </ul>
                     </div>
 
                     <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                     <div class="impediment-box">
-                        <strong>Observación:</strong> Comenzar con opciones básicas: Tarjeta y Transferencia<br>
-                        <strong>¿Está Claro?</strong> ✅ Sí - UI/UX mockup listo<br>
-                        <strong>Reglas Comerciales confirmadas:</strong><br>
-                        - Mostrar iconos visuales para cada método<br>
-                        - Validar selección antes de continuar al checkout
+                        <strong>Observación:</strong> DNI debe ser obligatorio y único; correo/teléfono opcionales pero
+                        validados si se ingresan<br>
+                        <strong>¿Está Claro?</strong> ✅ Sí - Formularios definidos<br>
+                        <strong>Reglas confirmadas:</strong><br>
+                        - Si DNI ya existe, mostrar paciente y bloquear creación duplicada<br>
+                        - Registro rápido solo con datos mínimos (DNI, nombres, apellidos, fecha nac.)<br>
+                        - Registro completo añade Historia Clínica (alergias, antecedentes, contacto)
                     </div>
                 </div>
 
-                <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 REFINAMIENTO SPRINT 2</h2>
+                <h2 style="color: #fdcb6e; margin-top: 40px;">✅ REFINAMIENTO SPRINT 2</h2>
 
                 <div class="card">
                     <h3>🎯 Historias Refinadas para Sprint 2</h3>
-                    <p><strong>Objetivo:</strong> Implementar búsquedas avanzadas y carrito funcional</p>
+                    <p><strong>Objetivo:</strong> Construir el núcleo comercial y operativo de GSTAR LAB: catálogo de
+                        exámenes
+                        (búsqueda/consulta de precios y tiempos) y registro transaccional de órdenes con paquetes
+                        (perfiles).</p>
                 </div>
 
                 <div class="grid-2">
                     <div class="user-story-detailed">
-                        <h4>HU-02: Búsqueda por Autor (3 pts)</h4>
+                        <h4>HU-01: Consultar catálogo de exámenes (precios y tiempos de entrega) (3 pts)</h4>
 
-                        <p><strong>📐 Slicing por Nombre:</strong></p>
+                        <p><strong>📐 Slicing por Pasos del Requerimiento:</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Dividido en 3 sub-historias:</strong></p>
+                            <p><strong>Historia Original:</strong> "Como recepción quiero consultar el catálogo de
+                                exámenes con precio y
+                                tiempo de entrega para informar al paciente y registrar una orden"</p>
+
+                            <p><strong>Paso 1:</strong> Listado de exámenes activos (nombre/código) con precio y TAT
+                                (tiempo de entrega)</p>
+                            <p><strong>Paso 2:</strong> Vista detalle del examen (muestra, preparación, unidad si
+                                aplica)</p>
+                            <p><strong>Paso 3:</strong> Comparación/combos avanzados (no incluido en Sprint 2)</p>
+
+                            <p style="margin-top: 15px;"><strong>Slicing aplicado:</strong></p>
                             <ul>
-                                <li><strong>HU-02a:</strong> Búsqueda por nombre de autor (nombre)</li>
-                                <li><strong>HU-02b:</strong> Búsqueda por apellido de autor (apellido)</li>
-                                <li><strong>HU-02c:</strong> Autocompletado predictivo (funcionalidad avanzada)</li>
+                                <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> ver exámenes activos con
+                                    precios y tiempos
+                                    <strong>para</strong> cotizar rápidamente
+                                </li>
+                                <li>✅ <strong>Como</strong> recepción <strong>quiero</strong> ver el detalle de un
+                                    examen
+                                    <strong>para</strong> confirmar requisitos básicos antes de registrar la orden
+                                </li>
                             </ul>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Usuarios buscan más por apellido que por nombre<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí<br>
-                            <strong>Recomendaciones Usuarios (13):</strong><br>
-                            - "Dividir las búsquedas por nombre y apellido"<br>
-                            - "Agregar autocompletado después de 3 caracteres"<br>
-                            <strong>Camino Elegido:</strong> Implementar búsqueda por nombre y apellido
-                            simultáneamente
+                            <strong>Observación:</strong> Priorizar campos mínimos: Código, Nombre, Precio, Tiempo de
+                            entrega, Estado (Activo/Inactivo)<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Catálogo inicial validado<br>
+                            <strong>Camino A:</strong> Listado + detalle básico primero (Sprint 2)<br>
+                            <strong>Camino B:</strong> Preparación avanzada / indicaciones extendidas en Sprint
+                            posterior
                         </div>
                     </div>
 
                     <div class="user-story-detailed">
-                        <h4>HU-03: Filtrar por Precio (3 pts)</h4>
+                        <h4>HU-02: Búsqueda de exámenes activos y perfiles (paquetes) para recepción (3 pts)</h4>
 
-                        <p><strong>📐 Slicing por Operaciones:</strong></p>
+                        <p><strong>📐 Slicing por Criterios de Búsqueda:</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Dividido por operaciones de filtrado:</strong></p>
+                            <p><strong>Dividido en sub-historias:</strong></p>
                             <ul>
-                                <li><strong>Como</strong> propietario de la tienda <strong>quiero</strong> mostrar
-                                    productos por rango de precios <strong>para</strong> facilitar navegación</li>
-                                <li><strong>Como</strong> propietario de la tienda <strong>quiero</strong>
-                                    actualizar resultados en tiempo real <strong>para</strong> mejorar experiencia
+                                <li><strong>HU-02a:</strong> Buscar examen por nombre/código (coincidencia parcial)</li>
+                                <li><strong>HU-02b:</strong> Filtrar por estado (solo Activos)</li>
+                                <li><strong>HU-02c:</strong> Buscar y seleccionar perfiles/paquetes (grupo de exámenes)
                                 </li>
-                                <li><strong>Como</strong> cliente <strong>quiero</strong> combinar filtro de precio
-                                    con otros filtros <strong>para</strong> búsquedas más específicas</li>
                             </ul>
+
+                            <p style="margin-top: 15px;"><strong>Decisión del equipo:</strong> Implementar HU-02a y
+                                HU-02b como base; HU-02c
+                                incluido si el catálogo/paquetes está listo (dependencia con HU-06).</p>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Mostrar cantidad de resultados encontrados<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Componente slider aprobado<br>
-                            <strong>Escenarios de Prueba:</strong><br>
-                            - Caso 1: Rango S/ 0-50 debe mostrar libros económicos<br>
-                            - Caso 2: Si no hay resultados mostrar mensaje claro<br>
-                            - Caso 3: Combinar con filtro de autor debe funcionar correctamente
+                            <strong>Observación:</strong> Recepción necesita búsqueda rápida (autocompletar a partir de
+                            3 caracteres)<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Mockup aprobado<br>
+                            <strong>Regla:</strong> Mostrar máximo 20 sugerencias y permitir seleccionar múltiples
+                            exámenes<br>
+                            <strong>Camino Elegido:</strong> Búsqueda por nombre/código + filtro activos; perfiles
+                            visibles cuando existan
                         </div>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>HU-08: Carrito de Compra (8 pts) - Historia Grande</h4>
+                    <h4>HU-06 + RF-05: Gestión de Órdenes + Paquetes (Perfiles) (8 pts) - Historia Grande</h4>
 
                     <p><strong>📐 Slicing de HU Grande - "Slicing de HU":</strong></p>
                     <div class="acceptance-criteria">
-                        <p><strong>Historia Original (8 pts):</strong> "Como usuario quiero un carrito de compras
-                            completo"</p>
+                        <p><strong>Historia Original (8 pts):</strong> "Como recepción quiero registrar una orden
+                            vinculando paciente con
+                            exámenes/paquetes para iniciar el proceso de laboratorio"</p>
 
                         <p style="margin-top: 15px;"><strong>📊 Estrategia de división - Slicing por
                                 funcionalidades:</strong></p>
                         <ul>
-                            <li><strong>HU-08a (3 pts):</strong> Agregar libros a carrito simple</li>
-                            <li><strong>HU-08b (2 pts):</strong> Modificar cantidades en carrito</li>
-                            <li><strong>HU-08c (3 pts):</strong> Validación de stock y persistencia de sesión</li>
+                            <li><strong>HU-06a (3 pts):</strong> CRUD de Paquetes/Perfiles
+                                (crear/editar/listar/desactivar)</li>
+                            <li><strong>HU-06b (3 pts):</strong> Registrar orden (cabecera) + vincular paciente</li>
+                            <li><strong>HU-06c (2 pts):</strong> Registrar detalle de orden (exámenes/paquetes) +
+                                generar identificador único (RF-05)</li>
                         </ul>
 
-                        <p style="margin-top: 15px;"><strong>Decisión del equipo:</strong> Implementar todas las
-                            sub-historias en Sprint 2 porque son interdependientes</p>
+                        <p style="margin-top: 15px;"><strong>Decisión del equipo:</strong> Implementar las sub-historias
+                            en el mismo sprint
+                            porque son interdependientes (paquetes y registro de orden comparten el modelo
+                            transaccional).</p>
                     </div>
 
                     <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                     <div class="impediment-box">
-                        <strong>Observación:</strong> Esta es la historia más compleja del sprint<br>
-                        <strong>¿Está Claro?</strong> ✅ Sí - Flujo de usuario definido<br>
-                        <strong>Feedback - Camino A:</strong> Implementar carrito básico primero
-                        (agregar/eliminar)<br>
-                        <strong>Feedback - Camino B:</strong> Agregar validaciones de stock después<br>
-                        <strong>Discovery:</strong> Necesitamos integración con BD de inventarios (dependencia con
-                        HU-04)
+                        <strong>Observación:</strong> La orden debe guardarse como transacción (si falla detalle, no se
+                        guarda cabecera)<br>
+                        <strong>¿Está Claro?</strong> ✅ Sí - Flujo definido (Paciente → Selección → Confirmación)<br>
+                        <strong>Camino A:</strong> Orden solo con exámenes individuales primero<br>
+                        <strong>Camino B:</strong> Agregar paquetes/perfiles inmediatamente (valor alto para
+                        recepción)<br>
+                        <strong>Dependencia:</strong> Requiere catálogo de exámenes (HU-01/HU-02) operativo para
+                        selección
                     </div>
                 </div>
 
-                <h2 style="color: #3498db; margin-top: 40px;">📋 REFINAMIENTO SPRINT 3</h2>
+                <h2 style="color: #3498db; margin-top: 40px;">✅ REFINAMIENTO SPRINT 3</h2>
 
                 <div class="card">
                     <h3>🎯 Historias Refinadas para Sprint 3</h3>
-                    <p><strong>Objetivo:</strong> Completar experiencia de compra con filtros avanzados y pasarela
-                        de pago</p>
+                    <p><strong>Objetivo:</strong> Desarrollar herramientas para el analista de laboratorio: carga masiva
+                        de resultados con
+                        validaciones clínicas, flujo de estados automático e interfaces administrativas para valores
+                        referenciales.</p>
                 </div>
 
                 <div class="grid-2">
                     <div class="user-story-detailed">
-                        <h4>HU-06: Filtrar por Género (3 pts)</h4>
+                        <h4>HU-08: Ingreso de resultados (grilla) + validaciones (RF-03) + unidades dinámicas (RF-04) (8
+                            pts)</h4>
 
-                        <p><strong>📐 Slicing por Nombre/Categorías:</strong></p>
+                        <p><strong>📐 Slicing por Pasos del Proceso (Laboratorio):</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Dividido por tipos de género:</strong></p>
+                            <p><strong>Historia Original:</strong> "Como laboratorista quiero ingresar resultados de
+                                exámenes en una grilla
+                                para procesar órdenes rápidamente"</p>
+
+                            <p><strong>Paso 1:</strong> Cargar lista de exámenes pendientes por orden (lectura)</p>
+                            <p><strong>Paso 2:</strong> Ingresar resultados en grilla (edición) con guardado</p>
+                            <p><strong>Paso 3:</strong> Validaciones mín/máx (RF-03) y unidad dinámica por examen
+                                (RF-04)</p>
+                            <p><strong>Paso 4:</strong> Carga masiva avanzada (copiar/pegar, importación) (futuro)</p>
+
+                            <p style="margin-top: 15px;"><strong>Slicing aplicado:</strong></p>
                             <ul>
-                                <li><strong>HU-06a:</strong> Filtro para géneros principales (Ficción, No-ficción)
+                                <li>✅ <strong>Como</strong> laboratorista <strong>quiero</strong> ver los exámenes de
+                                    una orden
+                                    <strong>para</strong> ingresar resultados sin cambiar de pantalla
                                 </li>
-                                <li><strong>HU-06b:</strong> Filtro para subgéneros (Misterio, Romance, Ciencia
-                                    Ficción, etc.)</li>
-                                <li><strong>HU-06c:</strong> Selección múltiple de géneros</li>
+                                <li>✅ <strong>Como</strong> laboratorista <strong>quiero</strong> ingresar y guardar
+                                    resultados en grilla
+                                    <strong>para</strong> procesar órdenes con rapidez
+                                </li>
+                                <li>✅ <strong>Como</strong> sistema <strong>quiero</strong> validar límites y unidades
+                                    <strong>para</strong> reducir errores pre-analíticos y analíticos
+                                </li>
                             </ul>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Los géneros deben estar estandarizados en la BD<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Categorización completa<br>
-                            <strong>Historia de Usuario refinada:</strong> Enfocarse en top 10 géneros más vendidos
-                            primero
+                            <strong>Observación:</strong> Priorizar exámenes piloto (los más frecuentes) para validar
+                            reglas mín/máx<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Pantalla tipo grilla aprobada<br>
+                            <strong>Camino A:</strong> Grilla simple (ingreso/guardar) primero<br>
+                            <strong>Camino B:</strong> Copiar/pegar e importación masiva en sprint posterior
                         </div>
                     </div>
 
                     <div class="user-story-detailed">
-                        <h4>HU-07: Búsqueda por Zona Geográfica (5 pts)</h4>
+                        <h4>RF-02: Flujo de estados (Pendiente → Procesado) + semáforo en dashboard (5 pts)</h4>
 
-                        <p><strong>📐 Slicing por Pasos:</strong></p>
+                        <p><strong>📐 Slicing por Transiciones de Estado:</strong></p>
                         <div class="acceptance-criteria">
-                            <p><strong>Dividido en pasos secuenciales:</strong></p>
+                            <p><strong>Historia Original:</strong> "Como sistema quiero actualizar el estado de la orden
+                                automáticamente
+                                para reflejar el avance del laboratorio"</p>
+
+                            <p style="margin-top: 15px;"><strong>Dividido por estados y reglas:</strong></p>
                             <ul>
-                                <li><strong>Paso 1:</strong> Seleccionar distrito manualmente</li>
-                                <li><strong>Paso 2:</strong> Mostrar tiendas disponibles en distrito</li>
-                                <li><strong>Paso 3:</strong> Calcular distancia y ordenar por cercanía</li>
-                                <li><strong>Paso 4:</strong> Geolocalización automática (futuro)</li>
+                                <li><strong>RF-02a:</strong> Estado inicial "Pendiente" al crear la orden</li>
+                                <li><strong>RF-02b:</strong> Cambiar a "Procesado" al completar resultados requeridos
+                                </li>
+                                <li><strong>RF-02c:</strong> Semáforo visual en dashboard (Pendiente/Procesado)</li>
+                                <li><strong>RF-02d:</strong> Auditoría básica de cambios de estado (futuro)</li>
                             </ul>
+
+                            <p style="margin-top: 15px;"><strong>Decisión del equipo:</strong> Implementar RF-02a,
+                                RF-02b y RF-02c en Sprint 3
+                                (valor inmediato para operación).</p>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Priorizar Lima Metropolitana primero<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Mapa de tiendas definido<br>
-                            <strong>Observaciones PO:</strong> Incluir horarios de atención de cada tienda
+                            <strong>Observación:</strong> El dashboard debe mostrar conteos por estado por día<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Estados acordados<br>
+                            <strong>Regla:</strong> Una orden NO puede pasar a Procesado si falta al menos 1 resultado
+                            obligatorio
                         </div>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>HU-13: Integración Pasarela de Pago (13 pts) - Historia MUY Grande</h4>
+                    <h4>RF-06: Mantenimiento de valores referenciales (administración) (5 pts)</h4>
 
-                    <p><strong>📐 Slicing de Historia Épica:</strong></p>
+                    <p><strong>📐 Slicing por Operaciones CRUD y Seguridad:</strong></p>
                     <div class="acceptance-criteria">
-                        <p><strong>⚠️ Historia Original (13 pts - Demasiado grande):</strong></p>
-                        <p>"Como usuario quiero pagar de forma segura con múltiples opciones"</p>
+                        <p><strong>Historia Original:</strong> "Como administrador quiero actualizar los valores
+                            referenciales para
+                            mantener la validez clínica de los resultados"</p>
 
-                        <p style="margin-top: 15px;"><strong>📊 División recomendada por tipos de pago:</strong></p>
+                        <p style="margin-top: 15px;"><strong>División recomendada por operaciones:</strong></p>
                         <ul>
-                            <li><strong>HU-13a (5 pts):</strong> Integración Mercado Pago (tarjetas crédito/débito)
-                            </li>
-                            <li><strong>HU-13b (3 pts):</strong> Integración Yape/Plin</li>
-                            <li><strong>HU-13c (3 pts):</strong> Upload de comprobante para transferencia bancaria
-                            </li>
-                            <li><strong>HU-13d (2 pts):</strong> Notificaciones y generación de boletas/facturas
-                            </li>
+                            <li><strong>RF-06a:</strong> Listar valores referenciales por examen</li>
+                            <li><strong>RF-06b:</strong> Editar rangos (mín/máx) y unidades asociadas</li>
+                            <li><strong>RF-06c:</strong> Activar/desactivar rangos (sin borrar historial)</li>
+                            <li><strong>RF-06d:</strong> Restricción por rol (solo usuarios autorizados) (incluido en
+                                Sprint 3)</li>
                         </ul>
+
+                        <p style="margin-top: 15px;"><strong>Decisión:</strong> Implementar CRUD +
+                            activación/desactivación y permisos
+                            mínimos en Sprint 3.</p>
                     </div>
 
                     <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                     <div class="impediment-box">
-                        <strong>Observación:</strong> Mercado Pago es prioridad #1<br>
-                        <strong>¿Está Claro?</strong> ✅ Sí - Cuenta Mercado Pago creada, APIs documentadas<br>
-                        <strong>Feedback - Recomendaciones Usuarios:</strong><br>
-                        - "Interfaz previamente testeada que sea amigable"<br>
-                        - "Opción para subir constancia de pago"<br>
-                        - "Link a atención al cliente visible"<br>
-                        <strong>Decisión:</strong> Implementar todas las integraciones en este sprint (equipo acepta
-                        el reto)
+                        <strong>Observación:</strong> No se deben eliminar rangos; se debe mantener trazabilidad
+                        (activo/inactivo)<br>
+                        <strong>¿Está Claro?</strong> ✅ Sí - Reglas clínicas acordadas<br>
+                        <strong>Escenarios de Prueba:</strong><br>
+                        - Caso 1: Cambiar rango y validar que nuevas órdenes usen el rango activo<br>
+                        - Caso 2: Si no existe rango para un examen, mostrar advertencia en grilla (no bloquear guardado
+                        si el PO lo permite)<br>
+                        - Caso 3: Solo rol autorizado puede editar rangos
                     </div>
                 </div>
 
@@ -2923,233 +3010,267 @@
 
                 <div class="card">
                     <h3>🎯 Historias Refinadas para Sprint 4</h3>
-                    <p><strong>Objetivo:</strong> Sistema completo de logística y features de engagement</p>
+                    <p><strong>Objetivo:</strong> Implementar el control de calidad médico y la entrega final de
+                        resultados: validación
+                        médica, generación de PDF institucional almacenado en AWS S3 (incluye descarga masiva) y
+                        dashboard gerencial con
+                        estadísticas mensuales.</p>
                 </div>
 
                 <div class="grid-2">
                     <div class="user-story-detailed">
-                        <h4>HU-09: Autocompletado (8 pts)</h4>
+                        <h4>HU-09: Validación médica de resultados (8 pts)</h4>
 
-                        <p><strong>📐 Slicing por Pasos:</strong></p>
+                        <p><strong>📐 Slicing por Pasos del Proceso Médico:</strong></p>
                         <div class="acceptance-criteria">
+                            <p><strong>Historia Original:</strong> "Como médico quiero validar resultados para asegurar
+                                calidad antes de
+                                la entrega al paciente"</p>
+
                             <ul>
-                                <li><strong>Paso 1:</strong> Guardar historial de búsquedas en BD</li>
-                                <li><strong>Paso 2:</strong> Mostrar desplegable con últimas 5 búsquedas</li>
-                                <li><strong>Paso 3:</strong> Relacionar con búsquedas pasadas (máx 30 días)</li>
+                                <li><strong>Paso 1:</strong> Listar órdenes en estado <em>Procesado</em> listas para
+                                    revisión</li>
+                                <li><strong>Paso 2:</strong> Resaltar valores fuera de rango y valores críticos (alertas
+                                    visuales)</li>
+                                <li><strong>Paso 3:</strong> Acciones de <em>Aprobar</em> y <em>Observar</em> con cambio
+                                    de estado</li>
+                                <li><strong>Paso 4:</strong> (Futuro) Firma digital / doble validación según tipo de
+                                    examen</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>Slicing aplicado:</strong></p>
+                            <ul>
+                                <li>✅ <strong>Como</strong> médico <strong>quiero</strong> ver resultados resaltados
+                                    <strong>para</strong> detectar rápidamente anomalías
+                                </li>
+                                <li>✅ <strong>Como</strong> médico <strong>quiero</strong> aprobar una orden
+                                    <strong>para</strong> habilitar la generación del informe final
+                                </li>
+                                <li>✅ <strong>Como</strong> médico <strong>quiero</strong> observar/rechazar con
+                                    comentario
+                                    <strong>para</strong> devolver al laboratorio con trazabilidad
+                                </li>
                             </ul>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Diseño no estaba listo inicialmente<br>
-                            <strong>¿Está Claro?</strong> ❌ NO en planning inicial → Ahora ✅ Sí<br>
-                            <strong>Diseño específico:</strong> 35x200 píxeles, debajo del header
+                            <strong>Observación:</strong> Resaltar valores críticos con mayor prioridad visual que
+                            “fuera de rango”<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Flujo médico aprobado<br>
+                            <strong>Camino A:</strong> Validación manual con resaltado (Sprint 4)<br>
+                            <strong>Camino B:</strong> Reglas avanzadas por tipo de examen y firma digital (Sprint
+                            posterior)
                         </div>
                     </div>
 
                     <div class="user-story-detailed">
-                        <h4>HU-10: Lista de Favoritos (5 pts)</h4>
+                        <h4>HU-10: Observaciones médicas (Aprobar/Observar) + comentarios (5 pts)</h4>
 
-                        <p><strong>📐 Slicing por Operaciones:</strong></p>
+                        <p><strong>📐 Slicing por Reglas de Criterios de Aceptación:</strong></p>
                         <div class="acceptance-criteria">
+                            <p><strong>Historia Original:</strong> "Como médico quiero dejar observaciones para
+                                documentar rechazos o
+                                correcciones antes de la entrega"</p>
+
+                            <p style="margin-top: 15px;"><strong>División por reglas:</strong></p>
                             <ul>
-                                <li><strong>Como</strong> cliente <strong>quiero</strong> marcar libros como
-                                    favoritos <strong>para</strong> encontrarlos fácilmente</li>
-                                <li><strong>Como</strong> cliente <strong>quiero</strong> ver todos mis favoritos en
-                                    una página <strong>para</strong> revisarlos</li>
-                                <li><strong>Como</strong> cliente <strong>quiero</strong> recibir notificaciones de
-                                    cambios de precio <strong>para</strong> aprovechar ofertas</li>
+                                <li><strong>HU-10a:</strong> Modal obligatorio de comentario al seleccionar
+                                    <em>Observar</em>
+                                </li>
+                                <li><strong>HU-10b:</strong> Guardar historial de observaciones (auditoría por orden y
+                                    usuario)</li>
+                                <li><strong>HU-10c:</strong> Visualizar observaciones previas en la pantalla de
+                                    validación</li>
                             </ul>
+
+                            <p style="margin-top: 15px;"><strong>Decisión:</strong> Implementar HU-10a y HU-10b como
+                                mínimo viable en Sprint 4
+                                (trazabilidad). HU-10c si hay capacidad.</p>
                         </div>
 
                         <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                         <div class="impediment-box">
-                            <strong>Observación:</strong> Icono de corazón universal<br>
-                            <strong>¿Está Claro?</strong> ✅ Sí - Iconografía definida
+                            <strong>Observación:</strong> El comentario debe ser obligatorio y quedar asociado al médico
+                            y fecha/hora<br>
+                            <strong>¿Está Claro?</strong> ✅ Sí - Modales definidos<br>
+                            <strong>Regla:</strong> Si la orden está Observada, debe volver a laboratorio para
+                            corrección (no generar PDF)
                         </div>
                     </div>
                 </div>
 
                 <div class="user-story-detailed">
-                    <h4>HU-20: Operadores de Entrega (20 pts) - Historia ÉPICA</h4>
+                    <h4>HU-07 + RF-12: Generación de PDF institucional + AWS S3 + descarga masiva (13 pts) - Historia
+                        Grande</h4>
 
-                    <p><strong>📐 Slicing de Historia Épica por Operadores:</strong></p>
+                    <p><strong>📐 Slicing de HU Grande por Entrega de Reportes:</strong></p>
                     <div class="acceptance-criteria">
-                        <p><strong>⚠️ Historia más grande del proyecto (20 pts)</strong></p>
+                        <p><strong>Historia Original (13 pts):</strong> "Como usuario autorizado quiero generar y
+                            descargar informes en PDF
+                            para entregar resultados oficiales"</p>
 
-                        <p style="margin-top: 15px;"><strong>División por operadores logísticos:</strong></p>
+                        <p style="margin-top: 15px;"><strong>📊 División recomendada por funcionalidades:</strong></p>
                         <ul>
-                            <li><strong>HU-20a (8 pts):</strong> Integración con Olva Courier (API + Tracking)</li>
-                            <li><strong>HU-20b (6 pts):</strong> Integración con Shalom (API + Tracking)</li>
-                            <li><strong>HU-20c (6 pts):</strong> Integración con Urbano (API + Tracking)</li>
+                            <li><strong>HU-07a (5 pts):</strong> Generar PDF con membrete institucional desde una orden
+                                validada</li>
+                            <li><strong>HU-07b (4 pts):</strong> Almacenar PDF en AWS S3 con metadata (ID orden, fecha,
+                                paciente)</li>
+                            <li><strong>HU-07c (4 pts):</strong> Descarga masiva (ZIP) por rango de fechas / sede</li>
                         </ul>
 
-                        <p style="margin-top: 15px;"><strong>Funcionalidades comunes (incluidas en cada
-                                integración):</strong></p>
+                        <p style="margin-top: 15px;"><strong>Reglas mínimas para Sprint 4:</strong></p>
                         <ul>
-                            <li>Cálculo automático de costos de envío</li>
-                            <li>Generación de guías de remisión</li>
-                            <li>Sistema de tracking en tiempo real</li>
-                            <li>Notificaciones de estados (despachado, en tránsito, entregado)</li>
+                            <li>Solo generar PDF si la orden está <em>Validada</em></li>
+                            <li>PDF debe incluir ID/QR de orden y datos del paciente</li>
+                            <li>Permisos por rol (Médico/Recepción/Gerencia según definición)</li>
                         </ul>
+
+                        <p style="margin-top: 15px;"><strong>Decisión del equipo:</strong> Priorizar HU-07a + HU-07b.
+                            HU-07c (descarga masiva) se hace si no impacta la entrega principal.</p>
                     </div>
 
                     <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
                     <div class="impediment-box">
-                        <strong>Observación:</strong> Requiere trabajo en paralelo de múltiples desarrolladores<br>
-                        <strong>¿Está Claro?</strong> ✅ Sí - APIs documentadas por los 3 operadores<br>
-                        <strong>Estrategia:</strong> Desarrollar integraciones en paralelo, comenzar con Olva (más
-                        usado)<br>
-                        <strong>Discovery:</strong> Necesitamos sandbox de pruebas de cada operador<br>
-                        <strong>Dependencias:</strong> HU-11 (Lugar de envío) debe estar completa
+                        <strong>Observación:</strong> El PDF es documento oficial; debe tener membrete y formato
+                        fijo<br>
+                        <strong>¿Está Claro?</strong> ✅ Sí - Plantilla institucional aprobada<br>
+                        <strong>Discovery:</strong> Definir estructura de carpetas y política de retención en S3<br>
+                        <strong>Dependencias:</strong> Requiere que HU-09 esté operativo (orden validada) para permitir
+                        generación
                     </div>
                 </div>
 
-                <h2 style="color: #e74c3c; margin-top: 40px;">📋 REFINAMIENTO SPRINT 5</h2>
+                <div class="user-story-detailed">
+                    <h4>RF-12: Dashboard gerencial (estadísticas de producción mensual) (5 pts)</h4>
 
-                <div class="card">
-                    <h3>🎯 Historias Refinadas para Sprint 5</h3>
-                    <p><strong>Objetivo:</strong> Pulir UX con recomendaciones y features de engagement</p>
-                    <p style="color: #f39c12;">💡 Este sprint contiene múltiples historias pequeñas (2-8 pts) que
-                        agregan valor incremental</p>
-                </div>
+                    <p><strong>📐 Slicing por KPIs:</strong></p>
+                    <div class="acceptance-criteria">
+                        <p><strong>Historia Original:</strong> "Como gerencia quiero ver estadísticas mensuales para
+                            medir producción y
+                            desempeño"</p>
 
-                <div class="grid-3">
-                    <div class="user-story-detailed">
-                        <h4>HU-12: Más Recientes (2 pts)</h4>
-                        <p><strong>📐 Historia Simple - No requiere slicing</strong></p>
-                        <div class="acceptance-criteria">
-                            <p>Query SQL ordenado por fecha de ingreso</p>
-                        </div>
-                        <p><strong>💬 FEEDBACK:</strong></p>
-                        <div class="impediment-box">
-                            ✅ Claro - Historia pequeña y directa
-                        </div>
+                        <p style="margin-top: 15px;"><strong>División por indicadores:</strong></p>
+                        <ul>
+                            <li><strong>RF-12a:</strong> Total de órdenes por mes (y comparación vs mes anterior)</li>
+                            <li><strong>RF-12b:</strong> Órdenes por estado (Pendiente/Procesado/Validado/Observado)
+                            </li>
+                            <li><strong>RF-12c:</strong> Top exámenes más solicitados</li>
+                            <li><strong>RF-12d:</strong> Filtros por rango de fechas y sede (si aplica)</li>
+                        </ul>
+
+                        <p style="margin-top: 15px;"><strong>Decisión:</strong> Implementar RF-12a y RF-12b como MVP.
+                            RF-12c y filtros avanzados quedan como mejora si hay capacidad.</p>
                     </div>
 
-                    <div class="user-story-detailed">
-                        <h4>HU-14: Recomendaciones (8 pts)</h4>
-                        <p><strong>📐 Slicing por Tipo de Recomendación:</strong></p>
-                        <div class="acceptance-criteria">
-                            <ul>
-                                <li>Por historial de compras</li>
-                                <li>Por género favorito</li>
-                                <li>"Los que compraron esto también..."</li>
-                            </ul>
-                        </div>
-                        <p><strong>💬 FEEDBACK:</strong></p>
-                        <div class="impediment-box">
-                            ✅ Algoritmo básico definido
-                        </div>
-                    </div>
-
-                    <div class="user-story-detailed">
-                        <h4>HU-15: Historial (3 pts)</h4>
-                        <p><strong>📐 Slicing por Operaciones:</strong></p>
-                        <div class="acceptance-criteria">
-                            <ul>
-                                <li>Guardar búsquedas</li>
-                                <li>Mostrar últimas 10</li>
-                                <li>Limpiar historial</li>
-                            </ul>
-                        </div>
+                    <p style="margin-top: 15px;"><strong>💬 FEEDBACK del PO:</strong></p>
+                    <div class="impediment-box">
+                        <strong>Observación:</strong> Acordar KPIs finales con gerencia antes de construir UI<br>
+                        <strong>¿Está Claro?</strong> ⚠️ Parcial - En revisión<br>
+                        <strong>Riesgo:</strong> Si KPIs no se cierran en refinamiento, se mueve a Sprint 5
                     </div>
                 </div>
 
-                <div class="grid-3">
-                    <div class="user-story-detailed">
-                        <h4>HU-16: Relacionados (5 pts)</h4>
-                        <p><strong>📐 Slicing por Criterio:</strong></p>
-                        <div class="acceptance-criteria">
-                            <ul>
-                                <li>Mismo autor</li>
-                                <li>Mismo género</li>
-                                <li>Temas similares</li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="user-story-detailed">
-                        <h4>HU-17: Best Sellers (2 pts)</h4>
-                        <p><strong>📐 Historia Simple</strong></p>
-                        <div class="acceptance-criteria">
-                            <p>Top 10 más vendidos con actualización semanal</p>
-                        </div>
-                    </div>
-
-                    <div class="user-story-detailed">
-                        <h4>HU-18: Newsletter (3 pts)</h4>
-                        <p><strong>📐 Slicing por Pasos:</strong></p>
-                        <div class="acceptance-criteria">
-                            <ul>
-                                <li>Formulario suscripción</li>
-                                <li>Confirmación email</li>
-                                <li>Gestión de preferencias</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
                 <h3 style="margin-top: 40px;">📊 Resumen de Estrategias de Slicing Utilizadas</h3>
                 <div class="card">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="background: #0f3460;">
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Técnica de
-                                    Slicing</th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Cuándo Usar
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Técnica de Slicing
                                 </th>
+                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Cuándo Usar</th>
                                 <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Historias
-                                    Aplicadas</th>
+                                    Aplicadas (GSTAR LAB)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Pasos del Requerimiento</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Cuando hay
-                                    flujo secuencial claro</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-01, HU-07,
-                                    HU-09</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Operaciones (CRUD)</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Para
-                                    funcionalidades de gestión de datos</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-04, HU-03,
-                                    HU-10</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Reglas de Negocio</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Cuando hay
-                                    múltiples validaciones</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-05</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Nombre/Categorías</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Para filtros o
-                                    clasificaciones</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-02, HU-06
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Pasos del Requerimiento</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Cuando existe un flujo secuencial claro (pantallas/estados/proceso clínico)
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    HU-01 (catálogo: listado → detalle), HU-08 (resultados: listar → ingresar →
+                                    validar),
+                                    HU-09 (validación médica: listar → revisar → aprobar/observar), HU-07 (PDF: generar
+                                    → guardar → descargar)
                                 </td>
                             </tr>
+
                             <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Funcionalidades</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Para historias
-                                    complejas independientes</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-08
-                                    (Carrito)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Operaciones (CRUD)</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Para funcionalidades de gestión de datos (altas, cambios, bajas lógicas, consultas)
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    HU-04/HU-05 (registro de pacientes completo/rápido), HU-06a (CRUD de
+                                    Paquetes/Perfiles),
+                                    RF-06 (CRUD de valores referenciales)
+                                </td>
                             </tr>
+
                             <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;"><strong>Por
-                                        Integraciones/Proveedores</strong></td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Para
-                                    integraciones con terceros</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">HU-13 (Pagos),
-                                    HU-20 (Operadores)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Reglas de Negocio</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Cuando hay múltiples validaciones/condiciones (clínicas, seguridad, calidad)
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    HU-04/HU-05 (unicidad de DNI y reglas de campos), HU-06c (transacción + ID único
+                                    RF-05),
+                                    HU-08 (validación min/máx RF-03 y unidades RF-04), HU-09/HU-10
+                                    (aprobación/observación y comentarios obligatorios)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Criterios de Búsqueda / Categorías</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Para filtros, catálogos y búsquedas (por campos, estado, rol, etc.)
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    HU-03 (búsqueda por DNI/apellido con autocompletado),
+                                    HU-02 (búsqueda de exámenes activos y perfiles para recepción)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Funcionalidades</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Para historias grandes donde se puede entregar valor incremental por partes
+                                    independientes
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    HU-06 (Órdenes): Paquetes → cabecera orden → detalle + ID único,
+                                    HU-07 (PDF): generar → almacenar en S3 → descarga masiva,
+                                    RF-12 (Dashboard): KPIs básicos → filtros → comparativos
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                    <strong>Por Integraciones/Servicios Cloud</strong>
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    Para integraciones con terceros o servicios cloud (autenticación, storage,
+                                    notificaciones)
+                                </td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">
+                                    RFN-03/07 (AWS Cognito/IAM), HU-07/RF-12 (AWS S3 para PDFs),
+                                    RF-02 (estados con lógica backend), (Opcional) notificaciones email/SMS si se
+                                    agregan en sprints posteriores
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -3281,17 +3402,19 @@
                     <div class="grid-3">
                         <div>
                             <strong>Sprint Goal:</strong><br>
-                            "Establecer infraestructura base del sistema con catálogo de libros y opciones básicas
-                            de pago"
+                            "Implementar el módulo de admisión y seguridad de GSTAR LAB: autenticación con AWS
+                            Cognito/IAM,
+                            roles por perfil y gestión de pacientes (búsqueda avanzada y registro con validación de
+                            unicidad)"
                         </div>
                         <div>
                             <strong>Fecha Review:</strong> Día 14 del Sprint<br>
                             <strong>Duración:</strong> 2 horas<br>
-                            <strong>Asistentes:</strong> 15 personas
+                            <strong>Asistentes:</strong> 12 personas
                         </div>
                         <div>
-                            <strong>Commitment:</strong> 9 pts<br>
-                            <strong>Completado:</strong> 9 pts<br>
+                            <strong>Commitment:</strong> 10 pts<br>
+                            <strong>Completado:</strong> 10 pts<br>
                             <strong>% Completado:</strong> 100% ✅
                         </div>
                     </div>
@@ -3299,17 +3422,24 @@
 
                 <div class="grid-2">
                     <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
-                        <h4>✅ Historias COMPLETADAS (9 pts)</h4>
+                        <h4>✅ Historias COMPLETADAS (10 pts)</h4>
                         <ul>
-                            <li><strong>HU-01:</strong> Búsqueda por título (2 pts) ✅</li>
-                            <li><strong>HU-04:</strong> Base de datos de libros (4 pts) ✅</li>
-                            <li><strong>HU-05:</strong> Medio de pago básico (3 pts) ✅</li>
+                            <li><strong>RFN-03/07:</strong> Login seguro + roles (Recepción/Laboratorista/Médico) con
+                                AWS Cognito/IAM (4 pts) ✅</li>
+                            <li><strong>HU-03:</strong> Búsqueda avanzada de pacientes (DNI/Apellido) con autocompletado
+                                (3 pts) ✅</li>
+                            <li><strong>HU-04 / HU-05:</strong> Registro de pacientes (completo con HC + registro
+                                rápido) con validación de DNI único (3 pts) ✅</li>
                         </ul>
+
                         <p style="margin-top: 15px;"><strong>Demostración realizada:</strong></p>
                         <ul>
-                            <li>📱 Catálogo funcional con 500 libros cargados</li>
-                            <li>🔍 Buscador que encuentra libros en menos de 1 segundo</li>
-                            <li>💳 Selección de método de pago (Tarjeta/Transferencia)</li>
+                            <li>🔐 Inicio de sesión funcional con roles y rutas protegidas</li>
+                            <li>🔎 Buscador de pacientes por DNI y Apellidos con autocompletado (máx. 20 sugerencias)
+                            </li>
+                            <li>🧾 Registro de paciente: flujo rápido (admisión) y flujo completo (Historia Clínica)
+                            </li>
+                            <li>🛡️ Validación en backend para bloquear duplicados por DNI</li>
                         </ul>
                     </div>
 
@@ -3318,10 +3448,12 @@
                         <div class="acceptance-criteria">
                             <strong>Tareas realizadas:</strong>
                             <ol>
-                                <li>Desplegar hospedaje para la BD en servidor</li>
-                                <li>Establecer arquitectura inicial</li>
-                                <li>Implementar buscador básico</li>
-                                <li>Diseñar mockups aprobados por PO</li>
+                                <li>Configurar autenticación con AWS Cognito y definición de roles</li>
+                                <li>Implementar control de acceso por rol (RBAC) en frontend y backend</li>
+                                <li>Desarrollar API de búsqueda de pacientes (DNI/Apellido) con optimización e índices
+                                </li>
+                                <li>Implementar formularios de registro rápido y registro completo (HC)</li>
+                                <li>Validar unicidad de DNI en backend y manejo de errores en UI</li>
                             </ol>
                         </div>
                     </div>
@@ -3330,322 +3462,364 @@
                 <div class="card">
                     <h4>💬 Feedback de Stakeholders - Sprint 1</h4>
                     <div class="impediment-box">
-                        <strong>Gerente General (PO):</strong> "Excelente inicio. El buscador funciona muy bien.
-                        Para el próximo sprint necesitamos el carrito funcional."<br><br>
-                        <strong>Jefe de Ventas:</strong> "La base de datos es rápida. ¿Podemos agregar filtro por
-                        precio en el siguiente sprint?"<br><br>
-                        <strong>Usuario Beta:</strong> "Me gustaría poder buscar por autor también, no solo por
-                        título."
+                        <strong>Product Owner (Clínica / Administración):</strong>
+                        "Buen avance. El acceso por roles está claro y la búsqueda por DNI acelera la admisión. Para el
+                        siguiente sprint
+                        necesitamos el catálogo de exámenes con precios y tiempos para poder cotizar."<br><br>
+
+                        <strong>Recepción (Usuario clave):</strong>
+                        "El autocompletado ayuda mucho. Sería ideal ver también el teléfono/edad en los resultados para
+                        distinguir pacientes
+                        con apellidos similares."<br><br>
+
+                        <strong>Laboratorio (Usuario clave):</strong>
+                        "Excelente que ya exista Historia Clínica. En el siguiente sprint necesitamos que la orden pueda
+                        seleccionar exámenes
+                        o paquetes para iniciar el flujo operativo."
                     </div>
                 </div>
 
                 <div class="card">
                     <h4>🔄 Descarga de Observaciones para Product Backlog</h4>
                     <ul>
-                        <li>✅ <strong>Aceptado:</strong> Agregar HU-02 (Búsqueda por autor) al Sprint 2</li>
-                        <li>✅ <strong>Aceptado:</strong> Agregar HU-03 (Filtro por precio) al Sprint 2</li>
-                        <li>📋 <strong>Para futuro:</strong> Mejorar diseño visual del catálogo (agregado al backlog
-                            como HU-19)</li>
-                        <li>📋 <strong>Para futuro:</strong> Agregar imágenes de portadas de libros (agregado como
-                            mejora técnica)</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar HU-01/HU-02 (catálogo y búsqueda de exámenes con
+                            precio y TAT) en Sprint 2</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar HU-06 + RF-05 (registro transaccional de órdenes +
+                            ID único) en Sprint 2</li>
+                        <li>📋 <strong>Para futuro:</strong> Mostrar campos adicionales en resultados de búsqueda
+                            (edad/teléfono) como mejora de UX</li>
+                        <li>📋 <strong>Para futuro:</strong> Recuperación de contraseña/MFA (fortalecimiento de
+                            seguridad) como mejora no funcional</li>
                     </ul>
                 </div>
 
-                <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 SPRINT REVIEW - SPRINT 2</h2>
+                <h2 style="color: #fdcb6e; margin-top: 40px;">✅ SPRINT REVIEW - SPRINT 2</h2>
 
                 <div class="card">
                     <h3>📊 Información del Sprint</h3>
                     <div class="grid-3">
                         <div>
                             <strong>Sprint Goal:</strong><br>
-                            "Implementar funcionalidades avanzadas de búsqueda y carrito de compra funcional"
+                            "Construir el núcleo comercial y operativo de GSTAR LAB: catálogo de exámenes
+                            (precios/tiempos/perfiles) y
+                            gestión transaccional de órdenes vinculando pacientes con exámenes/paquetes, generando ID
+                            único en AWS RDS"
                         </div>
                         <div>
-                            <strong>Fecha Review:</strong> En progreso<br>
-                            <strong>Duración estimada:</strong> 2 horas<br>
-                            <strong>Estado:</strong> 60% avanzado
+                            <strong>Fecha Review:</strong> Día 14 del Sprint<br>
+                            <strong>Duración:</strong> 2 horas<br>
+                            <strong>Asistentes:</strong> 11 personas
                         </div>
                         <div>
                             <strong>Commitment:</strong> 14 pts<br>
-                            <strong>Completado:</strong> En progreso<br>
-                            <strong>% Proyectado:</strong> ~70%
+                            <strong>Completado:</strong> 14 pts<br>
+                            <strong>% Completado:</strong> 100% ✅
                         </div>
                     </div>
                 </div>
 
                 <div class="grid-2">
-                    <div class="card" style="background: #3d3d00; border-left: 4px solid #fdcb6e;">
-                        <h4>🔄 Estado de Historias (14 pts planificados)</h4>
+                    <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
+                        <h4>✅ Historias COMPLETADAS (14 pts)</h4>
                         <ul>
-                            <li><strong>HU-02:</strong> Búsqueda por autor (3 pts) - 80% ⚙️</li>
-                            <li><strong>HU-03:</strong> Filtrar por precio (3 pts) - 70% ⚙️</li>
-                            <li><strong>HU-08:</strong> Carrito de compra (8 pts) - 50% ⚙️</li>
+                            <li><strong>HU-01:</strong> Consultar catálogo de exámenes (precios y tiempos de entrega) (3
+                                pts) ✅</li>
+                            <li><strong>HU-02:</strong> Búsqueda de exámenes activos y perfiles (paquetes) para
+                                recepción (3 pts) ✅</li>
+                            <li><strong>HU-06 + RF-05:</strong> Registro transaccional de órdenes + ID único y gestión
+                                de paquetes/perfiles (8 pts) ✅</li>
                         </ul>
-                        <p style="margin-top: 15px;"><strong>Proyección para Demo:</strong></p>
+
+                        <p style="margin-top: 15px;"><strong>Demostración realizada:</strong></p>
                         <ul>
-                            <li>✅ Búsqueda por autor funcional con autocompletado</li>
-                            <li>✅ Filtro de precio con slider interactivo</li>
-                            <li>⚠️ Carrito básico (agregar/eliminar) - validación pendiente</li>
+                            <li>🧪 Catálogo visible para Recepción: examen, precio y TAT (tiempo de entrega)</li>
+                            <li>🔎 Búsqueda por nombre/código con resultados rápidos y solo exámenes activos</li>
+                            <li>📦 Gestión de paquetes/perfiles (CRUD con desactivación)</li>
+                            <li>🧾 Registro de orden transaccional (Paciente → Exámenes/Paquetes → Confirmar)</li>
+                            <li>🔢 Generación automática de identificador único de orden (guardado en AWS RDS)</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h4>🚧 Impedimentos Encontrados</h4>
-                        <div class="impediment-box">
-                            <strong>Impedimento:</strong> Retraso en aprobaciones de diseño del checkout<br>
-                            <strong>Impacto:</strong> HU-08 (Carrito) al 50%<br>
-                            <strong>Acción:</strong> SM coordinando con diseñador<br>
-                            <strong>Estado:</strong> En resolución
+                        <h4>📋 Actividad Completada</h4>
+                        <div class="acceptance-criteria">
+                            <strong>Tareas realizadas:</strong>
+                            <ol>
+                                <li>Modelado y carga inicial de catálogo de exámenes en AWS RDS</li>
+                                <li>Implementación de API para consulta de precios y tiempos (TAT)</li>
+                                <li>UI de búsqueda de exámenes (nombre/código) para rol Recepción</li>
+                                <li>CRUD de paquetes/perfiles para agrupar exámenes</li>
+                                <li>Lógica transaccional para registrar órdenes y su detalle (commit/rollback)</li>
+                                <li>Generación de ID único de orden y persistencia en AWS RDS</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h4>📋 Plan de Descarga para Review Final</h4>
-                    <p><strong>Elementos a demostrar:</strong></p>
-                    <ol>
-                        <li>Catálogo actualizado con 1,200 libros</li>
-                        <li>Buscador por autor con autocompletado (comenzando en 3 caracteres)</li>
-                        <li>Filtro de precio por rango S/0 - S/500</li>
-                        <li>Carrito funcional: agregar libros, ver subtotal y total</li>
-                        <li>Integración de los 3 filtros funcionando en conjunto</li>
-                    </ol>
-                </div>
+                    <h4>💬 Feedback de Stakeholders - Sprint 2</h4>
+                    <div class="impediment-box">
+                        <strong>Product Owner (Clínica / Administración):</strong>
+                        "Con el catálogo y el registro de órdenes ya podemos operar admisión. Para el siguiente sprint
+                        necesitamos que el
+                        laboratorio pueda ingresar resultados y que el estado de la orden cambie
+                        automáticamente."<br><br>
 
-                <h2 style="color: #3498db; margin-top: 40px;">📋 SPRINT REVIEW - SPRINT 3 (Proyectado)</h2>
+                        <strong>Recepción (Usuario clave):</strong>
+                        "Los paquetes ayudan mucho (perfiles). Sugerencia: mostrar el tiempo de entrega total cuando se
+                        selecciona un paquete."<br><br>
 
-                <div class="card">
-                    <h3>📊 Información del Sprint</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong><br>
-                            "Completar experiencia de compra con filtros avanzados e integración completa de
-                            pasarela de pago"
-                        </div>
-                        <div>
-                            <strong>Fecha Review:</strong> Día 42 del proyecto<br>
-                            <strong>Duración:</strong> 2.5 horas<br>
-                            <strong>Asistentes proyectados:</strong> 20+
-                        </div>
-                        <div>
-                            <strong>Commitment:</strong> 21 pts<br>
-                            <strong>Criticidad:</strong> Alta ⚠️<br>
-                            <strong>Sprint más complejo</strong>
-                        </div>
+                        <strong>Responsable de Laboratorio:</strong>
+                        "Perfecto que la orden tenga ID único. Para Sprint 3 necesitamos una grilla para ingresar
+                        resultados rápido y validar
+                        unidades/valores para evitar errores."
                     </div>
                 </div>
 
-                <div class="card" style="background: #0d3b66; border-left: 4px solid #3498db;">
-                    <h4>📋 Historias Planificadas para Demo (21 pts)</h4>
+                <div class="card">
+                    <h4>🔄 Descarga de Observaciones para Product Backlog</h4>
                     <ul>
-                        <li><strong>HU-06:</strong> Filtrar por género literario (3 pts)</li>
-                        <li><strong>HU-07:</strong> Búsqueda por zona geográfica (5 pts)</li>
-                        <li><strong>HU-13:</strong> Integración pasarela de pago completa (13 pts) ⭐</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar HU-08 (grilla de ingreso de resultados) en Sprint 3
+                        </li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar RF-02 (flujo automático de estados + semáforo) en
+                            Sprint 3</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar RF-06 (mantenimiento de valores referenciales) en
+                            Sprint 3</li>
+                        <li>📋 <strong>Para futuro:</strong> Mostrar TAT consolidado por paquete/perfil (mejora UX para
+                            recepción)</li>
+                        <li>📋 <strong>Para futuro:</strong> Exportación/impresión de orden (comprobante interno) como
+                            mejora operativa</li>
                     </ul>
-
-                    <p style="margin-top: 15px;"><strong>Elementos clave a demostrar:</strong></p>
-                    <ol>
-                        <li><strong>Descarga de Filtros:</strong>
-                            <ul>
-                                <li>Filtro por género con selección múltiple</li>
-                                <li>Combinar género + autor + precio</li>
-                            </ul>
-                        </li>
-                        <li><strong>Zona Geográfica:</strong>
-                            <ul>
-                                <li>Selección de distrito</li>
-                                <li>Ver tiendas disponibles con stock</li>
-                                <li>Cálculo de distancia</li>
-                            </ul>
-                        </li>
-                        <li><strong>Pasarela de Pago (Demo Principal):</strong>
-                            <ul>
-                                <li>Pago con Mercado Pago (tarjetas)</li>
-                                <li>Pago con Yape/Plin (código QR)</li>
-                                <li>Upload de voucher de transferencia</li>
-                                <li>Generación de boleta/factura</li>
-                                <li>Notificaciones por email</li>
-                            </ul>
-                        </li>
-                    </ol>
                 </div>
 
-                <div class="card">
-                    <h4>🎯 Plan de Acción para Review Exitoso</h4>
-                    <div class="grid-2">
-                        <div>
-                            <strong>Elementos a preparar:</strong>
-                            <ul>
-                                <li>Cuenta de prueba Mercado Pago</li>
-                                <li>Datos de prueba para transacciones</li>
-                                <li>Librerías físicas mapeadas</li>
-                                <li>Servidor de email configurado</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <strong>Responsables:</strong>
-                            <ul>
-                                <li>Demo Filtros → Rodrigo</li>
-                                <li>Demo Zona Geo → Mario</li>
-                                <li>Demo Pagos → Gonzalo</li>
-                                <li>Facilitador → Enrique (SM)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 style="color: #9b59b6; margin-top: 40px;">📋 SPRINT REVIEW - SPRINT 4 (Proyectado)</h2>
+                <h2 style="color: #3498db; margin-top: 40px;">✅ SPRINT REVIEW - SPRINT 3</h2>
 
                 <div class="card">
                     <h3>📊 Información del Sprint</h3>
                     <div class="grid-3">
                         <div>
                             <strong>Sprint Goal:</strong><br>
-                            "Implementar sistema completo de logística y entregas con tracking en tiempo real"
+                            "Desarrollar las herramientas del analista de laboratorio: ingreso masivo de resultados con
+                            validaciones
+                            (RF-03/04), flujo de estados automático (Pendiente → Procesado) con indicadores tipo
+                            semáforo (RF-02) y
+                            mantenimiento de valores referenciales (RF-06)"
                         </div>
                         <div>
-                            <strong>Fecha Review:</strong> Día 56 del proyecto<br>
-                            <strong>Duración:</strong> 3 horas<br>
-                            <strong>Review más extensa</strong>
+                            <strong>Fecha Review:</strong> Día 14 del Sprint<br>
+                            <strong>Duración:</strong> 2.5 horas<br>
+                            <strong>Asistentes:</strong> 13 personas
                         </div>
                         <div>
-                            <strong>Commitment:</strong> 30 pts<br>
-                            <strong>Historia Épica:</strong> HU-20 (20 pts)<br>
-                            <strong>Sprint más grande</strong>
+                            <strong>Commitment:</strong> 18 pts<br>
+                            <strong>Completado:</strong> 18 pts<br>
+                            <strong>% Completado:</strong> 100% ✅
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card" style="background: #0d3b66; border-left: 4px solid #3498db;">
+                        <h4>✅ Historias COMPLETADAS (18 pts)</h4>
+                        <ul>
+                            <li><strong>HU-08:</strong> Ingreso de resultados (grilla) + validación min/max (RF-03) y
+                                unidades dinámicas (RF-04) (8 pts) ✅</li>
+                            <li><strong>RF-02:</strong> Flujo de estados automático (Pendiente → Procesado) + semáforo
+                                en dashboard (5 pts) ✅</li>
+                            <li><strong>RF-06:</strong> Mantenimiento de valores referenciales (interfaces
+                                administrativas) (5 pts) ✅</li>
+                        </ul>
+
+                        <p style="margin-top: 15px;"><strong>Demostración realizada:</strong></p>
+                        <ul>
+                            <li>🧪 Grilla para carga de resultados por orden (edición y guardado)</li>
+                            <li>✅ Validación automática de límites (min/max) y formato de valores</li>
+                            <li>📏 Unidades de medida dinámicas según el examen</li>
+                            <li>🚦 Dashboard con semáforo y conteos por estado (Pendiente/Procesado)</li>
+                            <li>🛠️ Pantalla administrativa para actualizar rangos referenciales (sin eliminar
+                                historial)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>📋 Actividad Completada</h4>
+                        <div class="acceptance-criteria">
+                            <strong>Tareas realizadas:</strong>
+                            <ol>
+                                <li>Implementar interfaz tipo grilla para carga masiva por orden (laboratorista)</li>
+                                <li>Construir lógica de validación (mín/máx) y unidad por examen</li>
+                                <li>Implementar transición automática de estados al completar resultados</li>
+                                <li>Desarrollar dashboard operativo con semáforo y conteos</li>
+                                <li>Crear módulo administrativo para mantenimiento de valores referenciales</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>💬 Feedback de Stakeholders - Sprint 3</h4>
+                    <div class="impediment-box">
+                        <strong>Product Owner (Clínica / Administración):</strong>
+                        "La grilla de resultados y el semáforo nos da visibilidad operativa. En el siguiente sprint
+                        necesitamos la
+                        validación médica (aprobar/observar) y el PDF oficial con membrete para entrega."<br><br>
+
+                        <strong>Laboratorista (Usuario clave):</strong>
+                        "La grilla ahorra mucho tiempo. Sería útil tener atajos de teclado y la opción de copiar/pegar
+                        rangos en el futuro."<br><br>
+
+                        <strong>Coordinación Médica:</strong>
+                        "Para Sprint 4 necesitamos que el médico vea valores críticos resaltados y pueda dejar
+                        observaciones antes de
+                        liberar el informe."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>🔄 Descarga de Observaciones para Product Backlog</h4>
+                    <ul>
+                        <li>✅ <strong>Aceptado:</strong> Implementar HU-09 y HU-10 (validación médica + observaciones)
+                            en Sprint 4</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar HU-07 + RF-12 (PDF institucional en S3 + descarga
+                            masiva) en Sprint 4</li>
+                        <li>✅ <strong>Aceptado:</strong> Implementar dashboard gerencial (RF-12: producción mensual) en
+                            Sprint 4 (si KPIs quedan definidos)</li>
+                        <li>📋 <strong>Para futuro:</strong> Atajos de teclado y copy/paste avanzado en grilla de
+                            resultados (mejora UX)</li>
+                        <li>📋 <strong>Para futuro:</strong> Auditoría detallada de cambios (quién/qué/cuándo) para
+                            resultados y rangos</li>
+                    </ul>
+                </div>
+
+                <h2 style="color: #9b59b6; margin-top: 40px;">📋 SPRINT REVIEW - SPRINT 4 (En Progreso)</h2>
+
+                <div class="card">
+                    <h3>📊 Información del Sprint</h3>
+                    <div class="grid-3">
+                        <div>
+                            <strong>Sprint Goal:</strong><br>
+                            "Implementar el control de calidad médico y la entrega final: validación médica
+                            (aprobar/observar),
+                            generación de PDF institucional en AWS S3 (incluye descarga masiva) y dashboard gerencial de
+                            producción mensual"
+                        </div>
+                        <div>
+                            <strong>Fecha Review:</strong> En progreso (Sprint actual)<br>
+                            <strong>Duración estimada:</strong> 3 horas<br>
+                            <strong>Estado:</strong> ~60% avanzado
+                        </div>
+                        <div>
+                            <strong>Commitment:</strong> 31 pts<br>
+                            <strong>Completado:</strong> En progreso<br>
+                            <strong>% Proyectado:</strong> ~70% (según alcance priorizado)
                         </div>
                     </div>
                 </div>
 
                 <div class="card" style="background: #4a1a4f; border-left: 4px solid #9b59b6;">
-                    <h4>📋 Historias Planificadas para Demo (30 pts)</h4>
+                    <h4>🔄 Estado de Historias (31 pts planificados)</h4>
                     <ul>
-                        <li><strong>HU-10:</strong> Lista de favoritos (5 pts)</li>
-                        <li><strong>HU-11:</strong> Lugar de envío y cálculo de costos (5 pts)</li>
-                        <li><strong>HU-20:</strong> Integración con operadores de entrega (20 pts) ⭐⭐⭐</li>
+                        <li><strong>HU-09:</strong> Validación médica de resultados (8 pts) - 70% ⚙️</li>
+                        <li><strong>HU-10:</strong> Observaciones médicas (modal + comentarios + auditoría) (5 pts) -
+                            60% ⚙️</li>
+                        <li><strong>HU-07 + RF-12:</strong> PDF institucional + AWS S3 + descarga masiva (13 pts) - 50%
+                            ⚙️</li>
+                        <li><strong>RF-12:</strong> Dashboard gerencial (producción mensual) (5 pts) - 20% ⚠️ (en
+                            definición de KPIs)</li>
                     </ul>
 
-                    <p style="margin-top: 15px;"><strong>Demo de Logística Completa:</strong></p>
-                    <ol>
-                        <li><strong>Flujo de Compra Completo:</strong>
-                            <ul>
-                                <li>Usuario navega y marca favoritos ❤️</li>
-                                <li>Agrega libros al carrito 🛒</li>
-                                <li>Ingresa dirección de envío 📍</li>
-                                <li>Sistema calcula costo automáticamente 💰</li>
-                                <li>Usuario selecciona operador (Olva/Shalom/Urbano) 🚚</li>
-                                <li>Se genera guía de remisión automáticamente 📄</li>
-                            </ul>
-                        </li>
-                        <li><strong>Tracking en Tiempo Real:</strong>
-                            <ul>
-                                <li>Estado: "Pedido despachado" ✅</li>
-                                <li>Estado: "En tránsito" 🚚</li>
-                                <li>Estado: "Entregado" 📦</li>
-                                <li>Notificaciones automáticas por email/SMS 📧</li>
-                            </ul>
-                        </li>
-                    </ol>
+                    <p style="margin-top: 15px;"><strong>Proyección para Demo:</strong></p>
+                    <ul>
+                        <li>✅ Pantalla de médico con listado de órdenes Procesadas y detalle de resultados</li>
+                        <li>✅ Resaltado de valores fuera de rango / críticos (primer set de exámenes piloto)</li>
+                        <li>⚠️ Flujo completo Aprobar/Observar con comentarios (parcial, falta auditoría completa)</li>
+                        <li>⚠️ PDF individual generado y almacenado en S3 (descarga masiva pendiente)</li>
+                        <li>⛔ Dashboard gerencial sujeto a cierre de KPIs (riesgo de pasar a Sprint 5)</li>
+                    </ul>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🚧 Impedimentos / Riesgos</h4>
+                        <div class="impediment-box">
+                            <strong>Impedimento:</strong> KPIs del dashboard gerencial aún no están cerrados (RF-12)<br>
+                            <strong>Impacto:</strong> Riesgo de no completar dashboard dentro del sprint<br>
+                            <strong>Acción:</strong> PO coordina sesión de definición con gerencia + equipo técnico
+                            ajusta consultas<br>
+                            <strong>Estado:</strong> En resolución<br><br>
+
+                            <strong>Riesgo:</strong> Descarga masiva (ZIP) y permisos finos de acceso a S3 pueden tomar
+                            más tiempo del esperado<br>
+                            <strong>Mitigación:</strong> Priorizar PDF individual + almacenamiento seguro; dejar
+                            descarga masiva como “nice-to-have”
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📋 Plan de Descarga para Review Final</h4>
+                        <p><strong>Elementos a demostrar:</strong></p>
+                        <ol>
+                            <li>Flujo médico: ver órdenes Procesadas → revisar resultados → Aprobar/Observar</li>
+                            <li>Ingreso de comentario obligatorio al Observar (HU-10)</li>
+                            <li>Generación de PDF con membrete institucional (HU-07)</li>
+                            <li>Almacenamiento del PDF en AWS S3 (metadatos por ID de orden/paciente)</li>
+                            <li>Descarga del PDF desde pantalla autorizada (según rol)</li>
+                            <li>(Si KPIs están definidos) Dashboard gerencial: órdenes por mes y por estado</li>
+                            <li>(Si hay tiempo) Descarga masiva de PDFs por rango de fechas (ZIP)</li>
+                        </ol>
+                    </div>
                 </div>
 
                 <div class="card">
                     <h4>🎯 Casos de Uso para Demostrar</h4>
                     <div class="grid-2">
                         <div class="acceptance-criteria">
-                            <strong>Caso 1: Envío a Lima Cercado</strong>
+                            <strong>Caso 1: Validación y entrega (Aprobado)</strong>
                             <ol>
-                                <li>Usuario en Miraflores compra 3 libros</li>
-                                <li>Ingresa dirección en San Isidro</li>
-                                <li>Sistema muestra: Olva S/8, Shalom S/10, Urbano S/7</li>
-                                <li>Elige Urbano (más económico)</li>
-                                <li>Recibe tracking en 24 horas</li>
+                                <li>Laboratorio completa resultados → estado pasa a “Procesado”</li>
+                                <li>Médico revisa resultados y aprueba</li>
+                                <li>Sistema genera PDF con membrete e ID/QR</li>
+                                <li>PDF se guarda en S3 y queda disponible para descarga</li>
                             </ol>
                         </div>
+
                         <div class="acceptance-criteria">
-                            <strong>Caso 2: Envío a Provincia</strong>
+                            <strong>Caso 2: Observación médica (Rechazo/Corrección)</strong>
                             <ol>
-                                <li>Usuario en Arequipa compra 1 libro</li>
-                                <li>Ingresa dirección completa</li>
-                                <li>Sistema calcula: Olva S/15, Shalom S/18</li>
-                                <li>Elige Olva</li>
-                                <li>Tiempo estimado: 3-5 días hábiles</li>
+                                <li>Médico detecta valor crítico inconsistente</li>
+                                <li>Selecciona “Observar” e ingresa comentario obligatorio</li>
+                                <li>Orden queda marcada como “Observada” y vuelve al laboratorio</li>
+                                <li>No se permite generar PDF mientras esté Observada</li>
                             </ol>
                         </div>
                     </div>
                 </div>
 
-                <h2 style="color: #e74c3c; margin-top: 40px;">📋 SPRINT REVIEW - SPRINT 5 (Proyectado)</h2>
 
                 <div class="card">
-                    <h3>📊 Información del Sprint Final</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong><br>
-                            "Pulir experiencia de usuario con recomendaciones y features de engagement"
-                        </div>
-                        <div>
-                            <strong>Fecha Review:</strong> Día 70 del proyecto<br>
-                            <strong>Duración:</strong> 2.5 horas<br>
-                            <strong>Review Final + Celebración</strong>
-                        </div>
-                        <div>
-                            <strong>Commitment:</strong> 23 pts<br>
-                            <strong>6 Historias:</strong> Features UX<br>
-                            <strong>Cierre del Proyecto</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
-                    <h4>📋 Historias Planificadas para Demo Final (23 pts)</h4>
-                    <ul>
-                        <li><strong>HU-12:</strong> Libros más recientes en homepage (2 pts)</li>
-                        <li><strong>HU-14:</strong> Sistema de recomendaciones personalizadas (8 pts) ⭐</li>
-                        <li><strong>HU-15:</strong> Historial de búsquedas recientes (3 pts)</li>
-                        <li><strong>HU-16:</strong> Títulos relacionados (5 pts)</li>
-                        <li><strong>HU-17:</strong> Sección de Best Sellers (2 pts)</li>
-                        <li><strong>HU-18:</strong> Newsletter y suscripciones (3 pts)</li>
-                    </ul>
-
-                    <p style="margin-top: 15px;"><strong>Demo de UX Completa tipo "Netflix para Libros":</strong>
-                    </p>
-                    <ol>
-                        <li><strong>Personalización:</strong>
-                            <ul>
-                                <li>Homepage con "Últimas Novedades" 📚</li>
-                                <li>"Recomendados para ti" basado en historial 🎯</li>
-                                <li>"Porque leíste... te recomendamos..." 💡</li>
-                            </ul>
-                        </li>
-                        <li><strong>Discovery:</strong>
-                            <ul>
-                                <li>Ver página de libro con "Títulos Relacionados" 🔗</li>
-                                <li>Sección "Los Más Vendidos" con Top 10 🏆</li>
-                                <li>Historial de búsquedas para re-visitar 🕐</li>
-                            </ul>
-                        </li>
-                        <li><strong>Engagement:</strong>
-                            <ul>
-                                <li>Suscripción a newsletter con ofertas 📧</li>
-                                <li>Notificaciones de nuevos libros de autores favoritos 🔔</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="card">
-                    <h4>🎉 Review Final - Verificación Completa del Proyecto</h4>
+                    <h4>🎉 Review Final - Verificación Completa del Proyecto (End-to-End)</h4>
                     <div class="acceptance-criteria">
                         <strong>Demostración End-to-End Completa:</strong>
                         <ol>
-                            <li>Usuario nuevo llega al sitio → Ve novedades y best sellers</li>
-                            <li>Busca "Gabriel García Márquez" → Encuentra libros con autocompletado</li>
-                            <li>Filtra por precio S/20-50 y género "Ficción" → Ve resultados precisos</li>
-                            <li>Marca "Cien Años de Soledad" como favorito ❤️</li>
-                            <li>Ve recomendaciones: "Otros de García Márquez", "Autores similares"</li>
-                            <li>Agrega 3 libros al carrito, modifica cantidades</li>
-                            <li>Ingresa dirección → Sistema calcula envío automáticamente</li>
-                            <li>Paga con Yape → Recibe confirmación + tracking</li>
-                            <li>Se suscribe al newsletter para ofertas futuras</li>
+                            <li>Usuario (Recepción) inicia sesión → el sistema valida rol con AWS Cognito/IAM</li>
+                            <li>Recepción busca paciente por DNI/Apellido → autocompletado muestra sugerencias</li>
+                            <li>Si el paciente no existe, se registra (rápido o completo con Historia Clínica) → se
+                                valida DNI único</li>
+                            <li>Recepción consulta el catálogo de exámenes → visualiza precio y tiempo de entrega (TAT)
+                            </li>
+                            <li>Recepción selecciona exámenes o un paquete/perfil → el sistema calcula la orden y
+                                registra el detalle</li>
+                            <li>El sistema genera un identificador único de orden → se guarda en AWS RDS</li>
+                            <li>Laboratorista ingresa resultados en grilla → validación min/máx (RF-03) y unidad
+                                dinámica (RF-04)</li>
+                            <li>Al completar resultados, el estado cambia automáticamente de Pendiente → Procesado
+                                (RF-02) y se refleja en el semáforo</li>
+                            <li>Médico revisa resultados, identifica valores críticos resaltados → Aprueba u Observa con
+                                comentario (HU-09/HU-10)</li>
+                            <li>Si está Aprobado, el sistema genera PDF institucional con membrete → almacena en AWS S3
+                                y habilita descarga</li>
+                            <li>(Opcional) Descarga masiva de PDFs por rango de fechas para reportes/archivo</li>
+                            <li>Gerencia visualiza dashboard de producción mensual (RF-12) con KPIs acordados</li>
                         </ol>
                     </div>
                 </div>
@@ -3665,787 +3839,710 @@
                             <tr>
                                 <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Story Points
                                     Completados</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">105 pts</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">105 pts</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ 100%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Historias
-                                    Completadas</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">19 HUs</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">19 HUs</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ 100%</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Velocidad
-                                    Promedio</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">10 pts/sprint
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">(Definir) pts</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #fdcb6e;">En consolidación
                                 </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">21 pts/sprint
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">⚠️
-                                    Sobreesfuerzo</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Satisfacción
-                                    Cliente (OKR)</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">+30%</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">+35%</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ Superado
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #fdcb6e;">🔄 En progreso
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Entregas en
-                                    48h (OKR)</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">+50%</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">+55%</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ Superado
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Historias / RFs
+                                    Implementados</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sprints 1-4</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #fdcb6e;">Parcial (Sprint 4
+                                    activo)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #fdcb6e;">🔄 En progreso
                                 </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Disponibilidad de
+                                    Plataforma (AWS)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">≥ 99%</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">99%+</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ OK</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Tiempo de Registro
+                                    de Orden</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">≤ 3 min</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">~2-3 min</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ OK</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Calidad de Datos
+                                    (Duplicados DNI)</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">0 duplicados</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">0 duplicados</td>
+                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">✅ OK</td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <p style="color: #f39c12; margin-top: 12px;">
+                        Nota: Ajusta “Objetivo/Logrado” según tus métricas reales (velocidad, % automatización,
+                        reducción de tiempos, etc.).
+                    </p>
                 </div>
 
-                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                    <h3 style="color: white;">🎉 ¡Proyecto Completado Exitosamente!</h3>
-                    <p>La plataforma web de Librerías "Pepito" ha sido desarrollada siguiendo el marco Scrum,
-                        cumpliendo con todos los requisitos del cliente y superando las métricas de los OKRs
-                        establecidos.</p>
+                <div class="card" style="background: linear-gradient(135deg, #1f7a6d 0%, #0f3460 100%); color: white;">
+                    <h3 style="color: white;">🎉 ¡Release Operativo de GSTAR LAB completado!</h3>
+                    <p>
+                        El sistema de gestión de laboratorio clínico (GSTAR LAB) fue desarrollado bajo Scrum,
+                        habilitando el flujo
+                        operativo completo: admisión y seguridad, catálogo y órdenes, procesamiento de resultados, y
+                        validación médica con
+                        entrega de informes en PDF integrados con AWS (RDS/S3/Cognito).
+                    </p>
 
                     <p style="margin-top: 15px;"><strong>Próximos Pasos:</strong></p>
                     <ul>
-                        <li>Despliegue a producción</li>
-                        <li>Monitoreo de métricas en vivo</li>
-                        <li>Plan de soporte y mantenimiento</li>
-                        <li>Backlog de mejoras continuas</li>
+                        <li>Hardening de seguridad (MFA, rotación de credenciales, auditoría avanzada)</li>
+                        <li>Monitoreo y observabilidad (CloudWatch, alertas, trazas)</li>
+                        <li>Optimización de rendimiento (índices, caching y paginación)</li>
+                        <li>Backlog de mejoras UX (copy/paste avanzado en grilla, filtros adicionales)</li>
+                        <li>Mejoras de reporting (KPIs adicionales, exportación y analítica)</li>
                     </ul>
                 </div>
-            </div>
+                </div>
+                <!-- Sprint Retrospective -->
+                <div id="retrospective" class="tab-content">
+                    <h2 class="section-title">Sprint Retrospective - Mejora Continua</h2>
 
-            <!-- Sprint Retrospective -->
-            <div id="retrospective" class="tab-content">
-                <h2 class="section-title">Sprint Retrospective - Mejora Continua</h2>
+                    <div class="card">
+                        <h3>🔄 ¿Qué es la Sprint Retrospective?</h3>
+                        <p>La Sprint Retrospective es una reunión al final del Sprint donde el equipo Scrum reflexiona
+                            sobre el sprint pasado y crea un plan de mejoras para implementar en el siguiente sprint.
+                        </p>
 
-                <div class="card">
-                    <h3>🔄 ¿Qué es la Sprint Retrospective?</h3>
-                    <p>La Sprint Retrospective es una reunión al final del Sprint donde el equipo Scrum reflexiona
-                        sobre el sprint pasado y crea un plan de mejoras para implementar en el siguiente sprint.
-                    </p>
+                        <h4 style="margin-top: 20px;">Objetivos de la Retrospectiva:</h4>
+                        <ul>
+                            <li><strong>Inspeccionar</strong> cómo fue el último sprint en personas, relaciones,
+                                procesos y herramientas</li>
+                            <li><strong>Identificar</strong> qué salió bien y qué puede mejorar</li>
+                            <li><strong>Crear</strong> un plan de acción con mejoras implementables</li>
+                            <li><strong>Adaptar</strong> la forma de trabajar del equipo</li>
+                            <li><strong>Fortalecer</strong> la colaboración y comunicación del equipo</li>
+                        </ul>
 
-                    <h4 style="margin-top: 20px;">Objetivos de la Retrospectiva:</h4>
-                    <ul>
-                        <li><strong>Inspeccionar</strong> cómo fue el último sprint en personas, relaciones,
-                            procesos y herramientas</li>
-                        <li><strong>Identificar</strong> qué salió bien y qué puede mejorar</li>
-                        <li><strong>Crear</strong> un plan de acción con mejoras implementables</li>
-                        <li><strong>Adaptar</strong> la forma de trabajar del equipo</li>
-                        <li><strong>Fortalecer</strong> la colaboración y comunicación del equipo</li>
-                    </ul>
+                        <div class="grid-2" style="margin-top: 20px;">
+                            <div>
+                                <h4>📅 Detalles del Evento:</h4>
+                                <ul>
+                                    <li><strong>Duración:</strong> Máximo 3 horas para sprint de 1 mes (1.5 horas para
+                                        sprint de 2 semanas)</li>
+                                    <li><strong>Cuándo:</strong> Después del Sprint Review, último día del sprint</li>
+                                    <li><strong>Participantes:</strong> Solo el Scrum Team (PO, SM, Dev Team)</li>
+                                    <li><strong>Facilitador:</strong> Scrum Master</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>📋 Formato Típico:</h4>
+                                <ol>
+                                    <li><strong>Check-in:</strong> Romper el hielo (10 min)</li>
+                                    <li><strong>Recolectar datos:</strong> ¿Qué pasó? (30 min)</li>
+                                    <li><strong>Generar insights:</strong> ¿Por qué pasó? (30 min)</li>
+                                    <li><strong>Decidir acciones:</strong> ¿Qué haremos? (20 min)</li>
+                                    <li><strong>Cierre:</strong> Compromisos (10 min)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="grid-2" style="margin-top: 20px;">
-                        <div>
-                            <h4>📅 Detalles del Evento:</h4>
+                    <h2 style="color: #00b894; margin-top: 40px;">✅ RETROSPECTIVA - SPRINT 1</h2>
+
+                    <div class="card">
+                        <h3>📊 Contexto del Sprint</h3>
+                        <div class="grid-3">
+                            <div>
+                                <strong>Sprint Goal Logrado:</strong> ✅ Sí<br>
+                                <strong>Completado:</strong> 9/9 pts (100%)<br>
+                                <strong>Velocidad:</strong> 9 pts
+                            </div>
+                            <div>
+                                <strong>Fecha Retro:</strong> Día 14<br>
+                                <strong>Duración:</strong> 1.5 horas<br>
+                                <strong>Asistentes:</strong> 10 personas
+                            </div>
+                            <div>
+                                <strong>Facilitador:</strong> Enrique (SM)<br>
+                                <strong>Formato usado:</strong> Start-Stop-Continue<br>
+                                <strong>Mood:</strong> 😊 Positivo
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
+                            <h4>✅ ¿Qué salió BIEN?</h4>
                             <ul>
-                                <li><strong>Duración:</strong> Máximo 3 horas para sprint de 1 mes (1.5 horas para
-                                    sprint de 2 semanas)</li>
-                                <li><strong>Cuándo:</strong> Después del Sprint Review, último día del sprint</li>
-                                <li><strong>Participantes:</strong> Solo el Scrum Team (PO, SM, Dev Team)</li>
-                                <li><strong>Facilitador:</strong> Scrum Master</li>
+                                <li>✨ Excelente comunicación del equipo</li>
+                                <li>✨ Daily Scrums efectivos y puntuales</li>
+                                <li>✨ La BD quedó mejor de lo esperado</li>
+                                <li>✨ Buen trabajo en pair programming (James-Rodrigo)</li>
+                                <li>✨ Mockups aprobados rápido por PO</li>
+                                <li>✨ Sin impedimentos técnicos graves</li>
                             </ul>
                         </div>
-                        <div>
-                            <h4>📋 Formato Típico:</h4>
-                            <ol>
-                                <li><strong>Check-in:</strong> Romper el hielo (10 min)</li>
-                                <li><strong>Recolectar datos:</strong> ¿Qué pasó? (30 min)</li>
-                                <li><strong>Generar insights:</strong> ¿Por qué pasó? (30 min)</li>
-                                <li><strong>Decidir acciones:</strong> ¿Qué haremos? (20 min)</li>
-                                <li><strong>Cierre:</strong> Compromisos (10 min)</li>
-                            </ol>
+
+                        <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
+                            <h4>🚫 ¿Qué salió MAL?</h4>
+                            <ul>
+                                <li>❌ Faltó documentación técnica</li>
+                                <li>❌ Estimaciones fueron conservadoras</li>
+                                <li>❌ No testeamos en diferentes navegadores</li>
+                                <li>❌ Reunión de planning fue muy larga (5 horas)</li>
+                                <li>❌ Ambiente de desarrollo tardó 2 días en configurarse</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
 
-                <h2 style="color: #00b894; margin-top: 40px;">✅ RETROSPECTIVA - SPRINT 1</h2>
-
-                <div class="card">
-                    <h3>📊 Contexto del Sprint</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal Logrado:</strong> ✅ Sí<br>
-                            <strong>Completado:</strong> 9/9 pts (100%)<br>
-                            <strong>Velocidad:</strong> 9 pts
+                        <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
+                            <h4>💡 IDEAS de Mejora</h4>
+                            <ul>
+                                <li>💭 Crear template de documentación</li>
+                                <li>💭 Ser más ambiciosos en estimaciones</li>
+                                <li>💭 Testing cross-browser obligatorio</li>
+                                <li>💭 Limitar planning a 3 horas máximo</li>
+                                <li>💭 Automatizar setup de ambiente</li>
+                                <li>💭 Agregar sesión de refinamiento semanal</li>
+                            </ul>
                         </div>
-                        <div>
-                            <strong>Fecha Retro:</strong> Día 14<br>
-                            <strong>Duración:</strong> 1.5 horas<br>
-                            <strong>Asistentes:</strong> 10 personas
-                        </div>
-                        <div>
-                            <strong>Facilitador:</strong> Enrique (SM)<br>
-                            <strong>Formato usado:</strong> Start-Stop-Continue<br>
-                            <strong>Mood:</strong> 😊 Positivo
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
-                        <h4>✅ ¿Qué salió BIEN?</h4>
-                        <ul>
-                            <li>✨ Excelente comunicación del equipo</li>
-                            <li>✨ Daily Scrums efectivos y puntuales</li>
-                            <li>✨ La BD quedó mejor de lo esperado</li>
-                            <li>✨ Buen trabajo en pair programming (James-Rodrigo)</li>
-                            <li>✨ Mockups aprobados rápido por PO</li>
-                            <li>✨ Sin impedimentos técnicos graves</li>
-                        </ul>
-                    </div>
-
-                    <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
-                        <h4>🚫 ¿Qué salió MAL?</h4>
-                        <ul>
-                            <li>❌ Faltó documentación técnica</li>
-                            <li>❌ Estimaciones fueron conservadoras</li>
-                            <li>❌ No testeamos en diferentes navegadores</li>
-                            <li>❌ Reunión de planning fue muy larga (5 horas)</li>
-                            <li>❌ Ambiente de desarrollo tardó 2 días en configurarse</li>
-                        </ul>
-                    </div>
-
-                    <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
-                        <h4>💡 IDEAS de Mejora</h4>
-                        <ul>
-                            <li>💭 Crear template de documentación</li>
-                            <li>💭 Ser más ambiciosos en estimaciones</li>
-                            <li>💭 Testing cross-browser obligatorio</li>
-                            <li>💭 Limitar planning a 3 horas máximo</li>
-                            <li>💭 Automatizar setup de ambiente</li>
-                            <li>💭 Agregar sesión de refinamiento semanal</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h4>🎯 PLAN DE ACCIÓN - Sprint 2</h4>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                        <thead>
-                            <tr style="background: #0f3460;">
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2 Elementos
-                                </th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Responsable
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Crear script
-                                    de setup automático</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">James</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Implementar
-                                    checklist de testing cross-browser</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Luis</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 RETROSPECTIVA - SPRINT 2</h2>
-
-                <div class="card">
-                    <h3>📊 Contexto del Sprint</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong> 🔄 En progreso<br>
-                            <strong>Proyectado:</strong> ~10/14 pts (71%)<br>
-                            <strong>Velocidad proyectada:</strong> 10 pts
-                        </div>
-                        <div>
-                            <strong>Fecha Retro:</strong> Día 28<br>
-                            <strong>Duración estimada:</strong> 1.5 horas<br>
-                            <strong>Formato planeado:</strong> Mad-Sad-Glad
-                        </div>
-                        <div>
-                            <strong>Mood actual:</strong> 😐 Neutral<br>
-                            <strong>Desafío:</strong> HU-08 compleja<br>
-                            <strong>Impedimento:</strong> Diseño checkout
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
-                        <h4>😊 GLAD (Contento)</h4>
-                        <ul>
-                            <li>✨ Script de setup funcionó perfecto</li>
-                            <li>✨ Pair programming sigue siendo efectivo</li>
-                            <li>✨ Buscador por autor quedó excelente</li>
-                            <li>✨ El filtro de precio es muy intuitivo</li>
-                            <li>✨ Mejoramos velocidad del sprint anterior</li>
-                        </ul>
-                    </div>
-
-                    <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
-                        <h4>😠 MAD (Frustrado)</h4>
-                        <ul>
-                            <li>❌ Retraso en aprobación de diseño (3 días)</li>
-                            <li>❌ HU-08 subestimada (debió ser 13 pts)</li>
-                            <li>❌ Dependencia con diseñador externo</li>
-                            <li>❌ Daily Scrum se extiende 30 min</li>
-                            <li>❌ Faltó sesión de refinamiento</li>
-                        </ul>
-                    </div>
-
-                    <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
-                        <h4>😢 SAD (Triste)</h4>
-                        <ul>
-                            <li>😔 No cumpliremos 14 pts comprometidos</li>
-                            <li>😔 Gonzalo estuvo enfermo 2 días</li>
-                            <li>😔 Testing manual toma mucho tiempo</li>
-                            <li>😔 Deuda técnica acumulándose</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h4>🎯 PLAN DE ACCIÓN - Sprint 3</h4>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                        <thead>
-                            <tr style="background: #0f3460;">
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2 Elementos
-                                </th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Responsable
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Contratar
-                                    diseñador interno o definir SLA con externo</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Enrique (SM)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Implementar
-                                    testing automatizado básico</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Luis</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <p style="margin-top: 15px; color: #f39c12;"><strong>Compromiso del equipo:</strong> Realizar
-                        refinamiento semanal de 2 horas para evitar sorpresas en planning</p>
-                </div>
-
-                <h2 style="color: #3498db; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 3 (Proyectado)</h2>
-
-                <div class="card">
-                    <h3>📊 Contexto del Sprint</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong> Pasarela de pago<br>
-                            <strong>Commitment:</strong> 21 pts<br>
-                            <strong>Criticidad:</strong> Muy alta ⚠️
-                        </div>
-                        <div>
-                            <strong>Desafío:</strong> Historia épica HU-13 (13 pts)<br>
-                            <strong>Riesgo:</strong> Integración Mercado Pago<br>
-                            <strong>Complejidad:</strong> Alta
-                        </div>
-                        <div>
-                            <strong>Formato planeado:</strong> Sailboat<br>
-                            <strong>Enfoque:</strong> Riesgos e impedimentos<br>
-                            <strong>Facilitador:</strong> Enrique (SM)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="card" style="background: #0d3b66; border-left: 4px solid #3498db;">
-                        <h4>⛵ SAILBOAT - Elementos Proyectados</h4>
-
-                        <p><strong>🌬️ Viento (Lo que nos impulsa):</strong></p>
-                        <ul>
-                            <li>Documentación clara de APIs de Mercado Pago</li>
-                            <li>Sandbox de pruebas disponible</li>
-                            <li>Gonzalo experto en integraciones de pago</li>
-                            <li>Testing automatizado ya implementado</li>
-                        </ul>
-
-                        <p style="margin-top: 15px;"><strong>⚓ Anclas (Lo que nos frena):</strong></p>
-                        <ul>
-                            <li>Complejidad de múltiples métodos de pago</li>
-                            <li>Requisitos de seguridad PCI-DSS</li>
-                            <li>Generación de boletas/facturas tributarias</li>
-                            <li>Coordinación con área contable</li>
-                        </ul>
-
-                        <p style="margin-top: 15px;"><strong>🪨 Rocas (Riesgos adelante):</strong></p>
-                        <ul>
-                            <li>Caída de servicio de Mercado Pago en producción</li>
-                            <li>Cambios en regulaciones de SUNAT</li>
-                            <li>Problemas con certificados SSL</li>
-                        </ul>
-
-                        <p style="margin-top: 15px;"><strong>🏝️ Isla (Meta/Destino):</strong></p>
-                        <ul>
-                            <li>Sistema de pagos 100% funcional</li>
-                            <li>Usuarios comprando sin fricción</li>
-                            <li>Boletas generadas automáticamente</li>
-                        </ul>
                     </div>
 
                     <div class="card">
-                        <h4>🎯 PLAN DE ACCIÓN Anticipado - Sprint 4</h4>
-
-                        <div class="acceptance-criteria">
-                            <strong>Elementos a priorizar:</strong>
-                            <ol>
-                                <li>Crear ambiente de staging igual a producción</li>
-                                <li>Documentar flujo completo de pago para onboarding</li>
-                                <li>Establecer plan de rollback en caso de fallas</li>
-                                <li>Coordinar con soporte para atención de incidencias</li>
-                            </ol>
-                        </div>
-
+                        <h4>🎯 PLAN DE ACCIÓN - Sprint 2</h4>
                         <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
                             <thead>
                                 <tr style="background: #0f3460;">
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2 Elementos
+                                    </th>
                                     <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
-                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
-                                        Responsable</th>
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Responsable
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Setup
-                                        ambiente staging</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Crear script
+                                        de setup automático</td>
                                     <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">James</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Plan de
-                                        monitoreo post-deploy</td>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Renato
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
                                     </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Implementar
+                                        checklist de testing cross-browser</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Luis</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
 
-                <h2 style="color: #9b59b6; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 4 (Proyectado)</h2>
+                    <h2 style="color: #fdcb6e; margin-top: 40px;">🔄 RETROSPECTIVA - SPRINT 2</h2>
 
-                <div class="card">
-                    <h3>📊 Contexto del Sprint</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong> Logística completa<br>
-                            <strong>Commitment:</strong> 30 pts<br>
-                            <strong>Sprint más grande</strong>
-                        </div>
-                        <div>
-                            <strong>Desafío:</strong> HU-20 Épica (20 pts)<br>
-                            <strong>Integraciones:</strong> 3 operadores<br>
-                            <strong>Complejidad:</strong> Muy alta ⚠️⚠️
-                        </div>
-                        <div>
-                            <strong>Formato planeado:</strong> 4 Ls<br>
-                            <strong>Enfoque:</strong> Aprendizajes<br>
-                            <strong>Team mood:</strong> 😰 Preocupado
+                    <div class="card">
+                        <h3>📊 Contexto del Sprint</h3>
+                        <div class="grid-3">
+                            <div>
+                                <strong>Sprint Goal:</strong> 🔄 En progreso<br>
+                                <strong>Proyectado:</strong> ~10/14 pts (71%)<br>
+                                <strong>Velocidad proyectada:</strong> 10 pts
+                            </div>
+                            <div>
+                                <strong>Fecha Retro:</strong> Día 28<br>
+                                <strong>Duración estimada:</strong> 1.5 horas<br>
+                                <strong>Formato planeado:</strong> Mad-Sad-Glad
+                            </div>
+                            <div>
+                                <strong>Mood actual:</strong> 😐 Neutral<br>
+                                <strong>Desafío:</strong> HU-08 compleja<br>
+                                <strong>Impedimento:</strong> Diseño checkout
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="grid-2">
-                    <div class="card" style="background: #4a1a4f; border-left: 4px solid #9b59b6;">
-                        <h4>📚 4 L's - Retrospectiva Proyectada</h4>
+                    <div class="grid-3">
+                        <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
+                            <h4>😊 GLAD (Contento)</h4>
+                            <ul>
+                                <li>✨ Script de setup funcionó perfecto</li>
+                                <li>✨ Pair programming sigue siendo efectivo</li>
+                                <li>✨ Buscador por autor quedó excelente</li>
+                                <li>✨ El filtro de precio es muy intuitivo</li>
+                                <li>✨ Mejoramos velocidad del sprint anterior</li>
+                            </ul>
+                        </div>
 
-                        <p><strong>❤️ Loved (Amamos):</strong></p>
-                        <ul>
-                            <li>Trabajo en paralelo de múltiples desarrolladores</li>
-                            <li>APIs de operadores bien documentadas</li>
-                            <li>Coordinación efectiva entre James, Renato y Gonzalo</li>
-                            <li>Sandboxes de prueba funcionando</li>
-                        </ul>
+                        <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
+                            <h4>😠 MAD (Frustrado)</h4>
+                            <ul>
+                                <li>❌ Retraso en aprobación de diseño (3 días)</li>
+                                <li>❌ HU-08 subestimada (debió ser 13 pts)</li>
+                                <li>❌ Dependencia con diseñador externo</li>
+                                <li>❌ Daily Scrum se extiende 30 min</li>
+                                <li>❌ Faltó sesión de refinamiento</li>
+                            </ul>
+                        </div>
 
-                        <p style="margin-top: 15px;"><strong>📖 Learned (Aprendimos):</strong></p>
-                        <ul>
-                            <li>Integración con APIs de terceros toma más tiempo</li>
-                            <li>Webhooks requieren configuración especial</li>
-                            <li>Testing de tracking requiere datos reales</li>
-                            <li>Documentación propia es crucial para mantenimiento</li>
-                        </ul>
-
-                        <p style="margin-top: 15px;"><strong>😞 Lacked (Faltó):</strong></p>
-                        <ul>
-                            <li>Tiempo para investigación técnica previa</li>
-                            <li>Spike técnico antes del sprint</li>
-                            <li>Más desarrolladores con experiencia en APIs</li>
-                            <li>Buffer para imprevistos técnicos</li>
-                        </ul>
-
-                        <p style="margin-top: 15px;"><strong>💙 Longed For (Deseamos):</strong></p>
-                        <ul>
-                            <li>Más sesiones de pair programming</li>
-                            <li>Knowledge sharing sessions semanales</li>
-                            <li>Tiempo para refactoring y deuda técnica</li>
-                            <li>Celebración de hitos importantes</li>
-                        </ul>
+                        <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
+                            <h4>😢 SAD (Triste)</h4>
+                            <ul>
+                                <li>😔 No cumpliremos 14 pts comprometidos</li>
+                                <li>😔 Gonzalo estuvo enfermo 2 días</li>
+                                <li>😔 Testing manual toma mucho tiempo</li>
+                                <li>😔 Deuda técnica acumulándose</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="card">
-                        <h4>🎯 PLAN DE ACCIÓN - Sprint 5</h4>
-
-                        <table style="width: 100%; border-collapse: collapse;">
+                        <h4>🎯 PLAN DE ACCIÓN - Sprint 3</h4>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
                             <thead>
                                 <tr style="background: #0f3460;">
-                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2
-                                        Elementos</th>
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2 Elementos
+                                    </th>
                                     <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
-                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
-                                        Responsable</th>
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Responsable
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">
-                                        Priorización</td>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sesión de
-                                        knowledge sharing sobre integraciones</td>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Gonzalo
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Contratar
+                                        diseñador interno o definir SLA con externo</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Enrique (SM)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">
-                                        Priorización</td>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Reservar
-                                        20% del sprint 5 para refactoring</td>
-                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Enrique
-                                        (SM)</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Priorización
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Implementar
+                                        testing automatizado básico</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Luis</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <div class="impediment-box" style="margin-top: 15px;">
-                            <strong>Decisión del Equipo:</strong><br>
-                            Sprint 5 será más relajado intencionalmente para recuperar energía y celebrar los logros
-                            del proyecto. Se planificarán historias más pequeñas y se dará espacio para mejoras
-                            técnicas.
+                        <p style="margin-top: 15px; color: #f39c12;"><strong>Compromiso del equipo:</strong> Realizar
+                            refinamiento semanal de 2 horas para evitar sorpresas en planning</p>
+                    </div>
+
+                    <h2 style="color: #3498db; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 3 (Proyectado)</h2>
+
+                    <div class="card">
+                        <h3>📊 Contexto del Sprint</h3>
+                        <div class="grid-3">
+                            <div>
+                                <strong>Sprint Goal:</strong> Pasarela de pago<br>
+                                <strong>Commitment:</strong> 21 pts<br>
+                                <strong>Criticidad:</strong> Muy alta ⚠️
+                            </div>
+                            <div>
+                                <strong>Desafío:</strong> Historia épica HU-13 (13 pts)<br>
+                                <strong>Riesgo:</strong> Integración Mercado Pago<br>
+                                <strong>Complejidad:</strong> Alta
+                            </div>
+                            <div>
+                                <strong>Formato planeado:</strong> Sailboat<br>
+                                <strong>Enfoque:</strong> Riesgos e impedimentos<br>
+                                <strong>Facilitador:</strong> Enrique (SM)
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <h2 style="color: #e74c3c; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 5 (Proyectado)</h2>
-
-                <div class="card">
-                    <h3>📊 Contexto del Sprint Final</h3>
-                    <div class="grid-3">
-                        <div>
-                            <strong>Sprint Goal:</strong> UX + Cierre<br>
-                            <strong>Commitment:</strong> 23 pts<br>
-                            <strong>Tipo:</strong> Sprint de finalización
-                        </div>
-                        <div>
-                            <strong>Enfoque:</strong> Pulir experiencia<br>
-                            <strong>Historias:</strong> 6 HUs pequeñas<br>
-                            <strong>Mood:</strong> 🎉 Celebración
-                        </div>
-                        <div>
-                            <strong>Formato:</strong> Retrospectiva de Proyecto<br>
-                            <strong>Duración:</strong> 2.5 horas<br>
-                            <strong>Incluye:</strong> Reflexión completa
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                    <h3 style="color: white;">🎉 Retrospectiva Final de Proyecto</h3>
-
-                    <h4 style="color: white; margin-top: 20px;">📊 Retrospectiva de Todo el Proyecto (5 Sprints)
-                    </h4>
 
                     <div class="grid-2">
-                        <div>
-                            <p><strong>🏆 Logros del Proyecto:</strong></p>
+                        <div class="card" style="background: #0d3b66; border-left: 4px solid #3498db;">
+                            <h4>⛵ SAILBOAT - Elementos Proyectados</h4>
+
+                            <p><strong>🌬️ Viento (Lo que nos impulsa):</strong></p>
                             <ul>
-                                <li>✅ 105 story points completados</li>
-                                <li>✅ 19 historias de usuario entregadas</li>
-                                <li>✅ 100% de funcionalidades requeridas</li>
-                                <li>✅ OKRs superados (+35% satisfacción, +55% entregas 48h)</li>
-                                <li>✅ Cero defectos críticos en producción</li>
-                                <li>✅ Equipo trabajó en armonía</li>
+                                <li>Documentación clara de APIs de Mercado Pago</li>
+                                <li>Sandbox de pruebas disponible</li>
+                                <li>Gonzalo experto en integraciones de pago</li>
+                                <li>Testing automatizado ya implementado</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>⚓ Anclas (Lo que nos frena):</strong></p>
+                            <ul>
+                                <li>Complejidad de múltiples métodos de pago</li>
+                                <li>Requisitos de seguridad PCI-DSS</li>
+                                <li>Generación de boletas/facturas tributarias</li>
+                                <li>Coordinación con área contable</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>🪨 Rocas (Riesgos adelante):</strong></p>
+                            <ul>
+                                <li>Caída de servicio de Mercado Pago en producción</li>
+                                <li>Cambios en regulaciones de SUNAT</li>
+                                <li>Problemas con certificados SSL</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>🏝️ Isla (Meta/Destino):</strong></p>
+                            <ul>
+                                <li>Sistema de pagos 100% funcional</li>
+                                <li>Usuarios comprando sin fricción</li>
+                                <li>Boletas generadas automáticamente</li>
                             </ul>
                         </div>
-                        <div>
-                            <p><strong>📈 Evolución del Equipo:</strong></p>
+
+                        <div class="card">
+                            <h4>🎯 PLAN DE ACCIÓN Anticipado - Sprint 4</h4>
+
+                            <div class="acceptance-criteria">
+                                <strong>Elementos a priorizar:</strong>
+                                <ol>
+                                    <li>Crear ambiente de staging igual a producción</li>
+                                    <li>Documentar flujo completo de pago para onboarding</li>
+                                    <li>Establecer plan de rollback en caso de fallas</li>
+                                    <li>Coordinar con soporte para atención de incidencias</li>
+                                </ol>
+                            </div>
+
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                                <thead>
+                                    <tr style="background: #0f3460;">
+                                        <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
+                                        <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                            Responsable</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Setup
+                                            ambiente staging</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">James</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Plan de
+                                            monitoreo post-deploy</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Renato
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h2 style="color: #9b59b6; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 4 (Proyectado)</h2>
+
+                    <div class="card">
+                        <h3>📊 Contexto del Sprint</h3>
+                        <div class="grid-3">
+                            <div>
+                                <strong>Sprint Goal:</strong> Logística completa<br>
+                                <strong>Commitment:</strong> 30 pts<br>
+                                <strong>Sprint más grande</strong>
+                            </div>
+                            <div>
+                                <strong>Desafío:</strong> HU-20 Épica (20 pts)<br>
+                                <strong>Integraciones:</strong> 3 operadores<br>
+                                <strong>Complejidad:</strong> Muy alta ⚠️⚠️
+                            </div>
+                            <div>
+                                <strong>Formato planeado:</strong> 4 Ls<br>
+                                <strong>Enfoque:</strong> Aprendizajes<br>
+                                <strong>Team mood:</strong> 😰 Preocupado
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="card" style="background: #4a1a4f; border-left: 4px solid #9b59b6;">
+                            <h4>📚 4 L's - Retrospectiva Proyectada</h4>
+
+                            <p><strong>❤️ Loved (Amamos):</strong></p>
                             <ul>
-                                <li>Velocidad: Sprint 1 (9 pts) → Sprint 5 (23 pts)</li>
-                                <li>Estimaciones cada vez más precisas</li>
-                                <li>Testing automatizado implementado</li>
-                                <li>Documentación mejorada significativamente</li>
-                                <li>Pair programming como práctica estándar</li>
+                                <li>Trabajo en paralelo de múltiples desarrolladores</li>
+                                <li>APIs de operadores bien documentadas</li>
+                                <li>Coordinación efectiva entre James, Renato y Gonzalo</li>
+                                <li>Sandboxes de prueba funcionando</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>📖 Learned (Aprendimos):</strong></p>
+                            <ul>
+                                <li>Integración con APIs de terceros toma más tiempo</li>
+                                <li>Webhooks requieren configuración especial</li>
+                                <li>Testing de tracking requiere datos reales</li>
+                                <li>Documentación propia es crucial para mantenimiento</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>😞 Lacked (Faltó):</strong></p>
+                            <ul>
+                                <li>Tiempo para investigación técnica previa</li>
+                                <li>Spike técnico antes del sprint</li>
+                                <li>Más desarrolladores con experiencia en APIs</li>
+                                <li>Buffer para imprevistos técnicos</li>
+                            </ul>
+
+                            <p style="margin-top: 15px;"><strong>💙 Longed For (Deseamos):</strong></p>
+                            <ul>
+                                <li>Más sesiones de pair programming</li>
+                                <li>Knowledge sharing sessions semanales</li>
+                                <li>Tiempo para refactoring y deuda técnica</li>
+                                <li>Celebración de hitos importantes</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>🎯 PLAN DE ACCIÓN - Sprint 5</h4>
+
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: #0f3460;">
+                                        <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">2
+                                            Elementos</th>
+                                        <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Tarea</th>
+                                        <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">
+                                            Responsable</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">
+                                            Priorización</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Sesión de
+                                            knowledge sharing sobre integraciones</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Gonzalo
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">
+                                            Priorización</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Reservar
+                                            20% del sprint 5 para refactoring</td>
+                                        <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Enrique
+                                            (SM)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="impediment-box" style="margin-top: 15px;">
+                                <strong>Decisión del Equipo:</strong><br>
+                                Sprint 5 será más relajado intencionalmente para recuperar energía y celebrar los logros
+                                del proyecto. Se planificarán historias más pequeñas y se dará espacio para mejoras
+                                técnicas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 style="color: #e74c3c; margin-top: 40px;">📋 RETROSPECTIVA - SPRINT 5 (Proyectado)</h2>
+
+                    <div class="card">
+                        <h3>📊 Contexto del Sprint Final</h3>
+                        <div class="grid-3">
+                            <div>
+                                <strong>Sprint Goal:</strong> UX + Cierre<br>
+                                <strong>Commitment:</strong> 23 pts<br>
+                                <strong>Tipo:</strong> Sprint de finalización
+                            </div>
+                            <div>
+                                <strong>Enfoque:</strong> Pulir experiencia<br>
+                                <strong>Historias:</strong> 6 HUs pequeñas<br>
+                                <strong>Mood:</strong> 🎉 Celebración
+                            </div>
+                            <div>
+                                <strong>Formato:</strong> Retrospectiva de Proyecto<br>
+                                <strong>Duración:</strong> 2.5 horas<br>
+                                <strong>Incluye:</strong> Reflexión completa
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h3 style="color: white;">🎉 Retrospectiva Final de Proyecto</h3>
+
+                        <h4 style="color: white; margin-top: 20px;">📊 Retrospectiva de Todo el Proyecto (5 Sprints)
+                        </h4>
+
+                        <div class="grid-2">
+                            <div>
+                                <p><strong>🏆 Logros del Proyecto:</strong></p>
+                                <ul>
+                                    <li>✅ 105 story points completados</li>
+                                    <li>✅ 19 historias de usuario entregadas</li>
+                                    <li>✅ 100% de funcionalidades requeridas</li>
+                                    <li>✅ OKRs superados (+35% satisfacción, +55% entregas 48h)</li>
+                                    <li>✅ Cero defectos críticos en producción</li>
+                                    <li>✅ Equipo trabajó en armonía</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p><strong>📈 Evolución del Equipo:</strong></p>
+                                <ul>
+                                    <li>Velocidad: Sprint 1 (9 pts) → Sprint 5 (23 pts)</li>
+                                    <li>Estimaciones cada vez más precisas</li>
+                                    <li>Testing automatizado implementado</li>
+                                    <li>Documentación mejorada significativamente</li>
+                                    <li>Pair programming como práctica estándar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
+                            <h4>🌟 Top 5 Cosas que Funcionaron</h4>
+                            <ol>
+                                <li><strong>Daily Scrum puntual</strong> - Mantuvo al equipo alineado</li>
+                                <li><strong>Pair Programming</strong> - Mejoró calidad y compartió conocimiento</li>
+                                <li><strong>Refinamiento semanal</strong> - Evitó sorpresas en planning</li>
+                                <li><strong>Testing automatizado</strong> - Redujo bugs en 80%</li>
+                                <li><strong>Comunicación abierta</strong> - Problemas resueltos rápido</li>
+                            </ol>
+                        </div>
+
+                        <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
+                            <h4>🔧 Top 5 Cosas para Mejorar</h4>
+                            <ol>
+                                <li><strong>Estimaciones iniciales</strong> - Fueron muy conservadoras</li>
+                                <li><strong>Spikes técnicos</strong> - Debimos hacerlos antes de sprints complejos</li>
+                                <li><strong>Deuda técnica</strong> - Se acumuló en sprints intermedios</li>
+                                <li><strong>Documentación continua</strong> - Se dejó para el final</li>
+                                <li><strong>Dependencias externas</strong> - Diseñador externo causó retrasos</li>
+                            </ol>
+                        </div>
+
+                        <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
+                            <h4>💡 Aprendizajes Clave</h4>
+                            <ul>
+                                <li>💭 Sprints de 2 semanas son ideales para este equipo</li>
+                                <li>💭 10 pts/sprint es sostenible, 20+ requiere excepciones</li>
+                                <li>💭 Historias >13 pts deben dividirse siempre</li>
+                                <li>💭 Retrospectivas son cruciales para mejora continua</li>
+                                <li>💭 Scrum funciona si todo el equipo se compromete</li>
                             </ul>
                         </div>
                     </div>
-                </div>
 
-                <div class="grid-3">
-                    <div class="card" style="background: #1a4d2e; border-left: 4px solid #00b894;">
-                        <h4>🌟 Top 5 Cosas que Funcionaron</h4>
-                        <ol>
-                            <li><strong>Daily Scrum puntual</strong> - Mantuvo al equipo alineado</li>
-                            <li><strong>Pair Programming</strong> - Mejoró calidad y compartió conocimiento</li>
-                            <li><strong>Refinamiento semanal</strong> - Evitó sorpresas en planning</li>
-                            <li><strong>Testing automatizado</strong> - Redujo bugs en 80%</li>
-                            <li><strong>Comunicación abierta</strong> - Problemas resueltos rápido</li>
-                        </ol>
+                    <div class="card">
+                        <h4>🎯 Recomendaciones para Próximos Proyectos</h4>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                            <thead>
+                                <tr style="background: #0f3460;">
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Área</th>
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Recomendación
+                                    </th>
+                                    <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Impacto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Planificación
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Hacer spikes
+                                        técnicos para historias >8 pts</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Estimación
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Usar datos de
+                                        velocidad histórica</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Calidad</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Testing
+                                        automatizado desde Sprint 1</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Equipo</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Mantener
+                                        equipo estable, evitar rotación</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">Medio</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Procesos</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Refinamiento
+                                        obligatorio cada semana</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Comunicación
+                                    </td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Daily Scrum a
+                                        las 9 AM funciona perfecto</td>
+                                    <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">Medio</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="card" style="background: #7d1212; border-left: 4px solid #e74c3c;">
-                        <h4>🔧 Top 5 Cosas para Mejorar</h4>
-                        <ol>
-                            <li><strong>Estimaciones iniciales</strong> - Fueron muy conservadoras</li>
-                            <li><strong>Spikes técnicos</strong> - Debimos hacerlos antes de sprints complejos</li>
-                            <li><strong>Deuda técnica</strong> - Se acumuló en sprints intermedios</li>
-                            <li><strong>Documentación continua</strong> - Se dejó para el final</li>
-                            <li><strong>Dependencias externas</strong> - Diseñador externo causó retrasos</li>
-                        </ol>
-                    </div>
-
-                    <div class="card" style="background: #3d3d00; border-left: 4px solid #f39c12;">
-                        <h4>💡 Aprendizajes Clave</h4>
+                    <div class="card"
+                        style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                        <h3 style="color: white;">🎊 Celebración y Agradecimientos</h3>
+                        <p><strong>El equipo expresa gratitud a:</strong></p>
                         <ul>
-                            <li>💭 Sprints de 2 semanas son ideales para este equipo</li>
-                            <li>💭 10 pts/sprint es sostenible, 20+ requiere excepciones</li>
-                            <li>💭 Historias >13 pts deben dividirse siempre</li>
-                            <li>💭 Retrospectivas son cruciales para mejora continua</li>
-                            <li>💭 Scrum funciona si todo el equipo se compromete</li>
+                            <li>🏆 <strong>Gerente General (PO):</strong> Por la confianza y visión clara del producto
+                            </li>
+                            <li>🛡️ <strong>Enrique (SM):</strong> Por facilitar el proceso y remover impedimentos</li>
+                            <li>👨‍💻 <strong>Development Team:</strong> Por el compromiso, profesionalismo y trabajo en
+                                equipo excepcional</li>
+                            <li>🤝 <strong>Stakeholders:</strong> Por el feedback constructivo en cada Sprint Review
+                            </li>
                         </ul>
+
+                        <p style="margin-top: 20px;"><strong>🎉 Resultado:</strong> Un equipo Scrum maduro, un producto
+                            exitoso, y clientes satisfechos.</p>
+
+                        <p style="margin-top: 15px; font-size: 1.2em; text-align: center;">
+                            <strong>"El éxito de Scrum no está en seguir reglas, sino en la colaboración, transparencia
+                                y mejora continua del equipo."</strong>
+                        </p>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h4>🎯 Recomendaciones para Próximos Proyectos</h4>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                        <thead>
-                            <tr style="background: #0f3460;">
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Área</th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Recomendación
-                                </th>
-                                <th style="padding: 10px; border: 1px solid #3498db; color: #e74c3c;">Impacto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Planificación
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Hacer spikes
-                                    técnicos para historias >8 pts</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Estimación
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Usar datos de
-                                    velocidad histórica</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Calidad</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Testing
-                                    automatizado desde Sprint 1</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Equipo</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Mantener
-                                    equipo estable, evitar rotación</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">Medio</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Procesos</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Refinamiento
-                                    obligatorio cada semana</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #00b894;">Alto</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Comunicación
-                                </td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #c0c0c0;">Daily Scrum a
-                                    las 9 AM funciona perfecto</td>
-                                <td style="padding: 10px; border: 1px solid #3498db; color: #f39c12;">Medio</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-                    <h3 style="color: white;">🎊 Celebración y Agradecimientos</h3>
-                    <p><strong>El equipo expresa gratitud a:</strong></p>
-                    <ul>
-                        <li>🏆 <strong>Gerente General (PO):</strong> Por la confianza y visión clara del producto
-                        </li>
-                        <li>🛡️ <strong>Enrique (SM):</strong> Por facilitar el proceso y remover impedimentos</li>
-                        <li>👨‍💻 <strong>Development Team:</strong> Por el compromiso, profesionalismo y trabajo en
-                            equipo excepcional</li>
-                        <li>🤝 <strong>Stakeholders:</strong> Por el feedback constructivo en cada Sprint Review
-                        </li>
-                    </ul>
-
-                    <p style="margin-top: 20px;"><strong>🎉 Resultado:</strong> Un equipo Scrum maduro, un producto
-                        exitoso, y clientes satisfechos.</p>
-
-                    <p style="margin-top: 15px; font-size: 1.2em; text-align: center;">
-                        <strong>"El éxito de Scrum no está en seguir reglas, sino en la colaboración, transparencia
-                            y mejora continua del equipo."</strong>
-                    </p>
-                </div>
-            </div>
-
-            <!-- OKRs -->
-            <div id="okr" class="tab-content">
-                <h2 class="section-title">OKRs del Proyecto</h2>
-
-                <div class="okr-section">
-                    <div class="objective">
-                        <h3>🎯 Objetivo 1: Mejorar el proceso de venta y separación de libros</h3>
-
-                        <div class="key-result">
-                            <strong>KR1 (OKR-KR1):</strong> Aumentar en un 30% la satisfacción de nuestros clientes
-                            <p><strong>Iniciativa:</strong> Desarrollar una pasarela de pago</p>
-                        </div>
-
-                        <div class="key-result">
-                            <strong>KR2 (OKR-KR2):</strong> Aumentar en 50% la entrega de libros en 48 horas
-                            <p><strong>Iniciativas:</strong></p>
-                            <ul>
-                                <li>Crear un tracking de los pedidos de libros</li>
-                                <li>Crear una app de última milla</li>
-                            </ul>
-                        </div>
-
-                        <div class="key-result">
-                            <strong>KR3 (OKR-KR3):</strong> Reducir en un 30% las quejas de los usuarios sobre las
-                            entregas de los libros
-                            <p><strong>Iniciativa:</strong> Chatbot</p>
-                        </div>
-                    </div>
-
-                    <div class="objective">
-                        <h3>🎯 Objetivo 2: Mejorar el proceso de entrega de libros</h3>
-
-                        <div class="key-result">
-                            <strong>KR1 (OKR-KR1):</strong> Aumentar en 50% la entrega de libros en 48 horas
-                            <p><strong>Iniciativas:</strong></p>
-                            <ul>
-                                <li>Crear un chat bot para consultas y quejas del cliente</li>
-                                <li>Crear un tracking de los pedidos de libros</li>
-                            </ul>
-                        </div>
-
-                        <div class="key-result">
-                            <strong>KR2 (OKR-KR2):</strong> Reducir la separación de un libro a 5 minutos
-                        </div>
-
-                        <div class="key-result">
-                            <strong>KR3 (OKR-KR3):</strong> Reducir en un 30% las quejas de los usuarios sobre las
-                            entregas de los libros
-                        </div>
-                    </div>
-
-                    <div class="objective">
-                        <h3>🎯 Objetivo 3: Mejorar la presencia virtual de la empresa</h3>
-
-                        <div class="key-result">
-                            <strong>KR1 (OKR-KR1):</strong> Conseguir un 70% de reviews positivos por cada compra
-                        </div>
-
-                        <div class="key-result">
-                            <strong>KR2 (OKR-KR2):</strong> Incrementar en 15% el tráfico en medios virtuales de la
-                            empresa en 2 meses
-                            <p><strong>Iniciativas:</strong></p>
-                            <ul>
-                                <li>Crear redes sociales</li>
-                                <li>Crear eventos o ferias de libros para promocionar la librería y venta online
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>📊 Mapeo OKR → Iniciativas → User Stories</h3>
-                <div class="card">
-                    <p><strong>Ejemplo de trazabilidad:</strong></p>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Mejorar presencia virtual</li>
-                        <li><strong>→ Key Result:</strong> Aumentar en 30% satisfacción de clientes</li>
-                        <li><strong>→ Iniciativa:</strong> Incrementar publicidad en redes sociales</li>
-                        <li><strong>→ User Stories:</strong>
-                            <ul>
-                                <li>App de usuario para visualizar tracking</li>
-                                <li>Contar con todos los medios de pago</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        function showTab(tabName) {
-            // Ocultar todos los contenidos
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
+        <script>
+            function showTab(tabName) {
+                // Ocultar todos los contenidos
+                const contents = document.querySelectorAll('.tab-content');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Desactivar todos los tabs
+                const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Activar el tab seleccionado
+                document.getElementById(tabName).classList.add('active');
+                event.target.classList.add('active');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Simulación de drag and drop para las tarjetas
+            document.querySelectorAll('.story-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    this.style.opacity = '0.5';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 200);
+                });
             });
 
-            // Desactivar todos los tabs
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
+            // Animación de las tarjetas de planning poker
+            document.querySelectorAll('.poker-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    this.style.transform = 'scale(1.2) rotate(360deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 500);
+                });
             });
-
-            // Activar el tab seleccionado
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Simulación de drag and drop para las tarjetas
-        document.querySelectorAll('.story-card').forEach(card => {
-            card.addEventListener('click', function () {
-                this.style.opacity = '0.5';
-                setTimeout(() => {
-                    this.style.opacity = '1';
-                }, 200);
-            });
-        });
-
-        // Animación de las tarjetas de planning poker
-        document.querySelectorAll('.poker-card').forEach(card => {
-            card.addEventListener('click', function () {
-                this.style.transform = 'scale(1.2) rotate(360deg)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 500);
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
